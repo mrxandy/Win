@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget>
+	<name>控制面板</name>
+	<width>450</width>
+	<height>300</height>
+	<script>{WIDGET}serve.js</script>
+	<html target="#module dl"><![CDATA[
+		<dt data-appid="{APPID}" data-widget="{WGTID}"> <strong>系统管理</strong> </dt>
+		<dd data-appid="{APPID}" data-widget="{WGTID}">
+			<ul>
+				<li data-object="admin"><a href="javascript:void(0);" onclick="Serv.Module.open('system','用户中心','contacts','admin.list.php');return false;"><img src="static/image/extra/contacts.png" /><br /><span>用户</span></a></li>
+				<li data-object="setting"><a href="javascript:void(0);" onclick="Serv.Module.open('system','设置中心','settings','serve.control.php');return false;"><img src="static/image/extra/settings.png" /><br /><span>设置</span></a></li>
+				<li data-object="module"><a href="javascript:void(0);" onclick="Serv.Module.open('system','模块管理','calculator','module.control.php');return false;"><img src="static/image/extra/calculator.png" /><br /><span>模块</span></a></li>
+				<li data-object="stats"><a href="javascript:void(0);" onclick="Serv.Module.open('system','数据统计','stocks','data.stats.php');return false;"><img src="static/image/extra/stocks.png" /><br /><span>统计</span></a></li>
+				<li data-object="secure"><a href="javascript:void(0);" onclick="Serv.Module.open('system','安全中心','sysinfo','system.secure.php');"><img src="static/image/extra/sysinfo.png" /><br /><span>安全</span></a></li>
+				<!--li data-object="news"><a href="javascript:void(0);" onclick="Serv.Module.open('system','官方动态','rss','serve.news.php');return false;"><img src="static/image/extra/rss.png" /><br /><span>VeryIDE</span></a></li>
+				<li data-object="search"><a href="javascript:void(0);" onclick="Serv.Module.open('system','全站搜索','finder','serve.search.php');return false;"><img src="static/image/extra/finder.png" /><br /><span>搜索</span></a></li-->
+			</ul>
+		</dd>
+	]]></html>
+</widget>

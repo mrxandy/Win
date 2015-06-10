@@ -1,0 +1,187 @@
+
+<!--主体内容-->
+<p><strong style="color:#06C;">本周概况</strong></p>
+
+    <table width="100%" border="1" cellpadding="8" cellspacing="0" bordercolor="#CCCCCC" style="font-size:13px; border-collapse:collapse;">
+  <tr style="background:#4A98EE; color:#fff; font-weight:bold;">
+    <td width="50">时间</td>
+    <td>日期</td>
+    <td>点击数</td>
+    <td>所占比</td>
+    <td width="70">相对上周</td>
+  </tr>
+  
+  <!--{foreach from=$data.week key=date item=item}-->
+  
+  <tr style="background:<!--{cycle values=",#EFEFEF"}-->;">
+    <td><!--{$item.week}--></td>
+    <td><!--{$date}--><!--{if $item.holiday}-->（<!--{$item.holiday}-->）<!--{/if}--></td>
+    <td>
+        <!--{if $item.ismax}-->
+              <b style="color:green;"><!--{$item.value}--></b>
+        <!--{elseif $item.ismin}-->
+            <b style="color:red;"><!--{$item.value}--></b>
+        <!--{else}-->
+            <!--{$item.value}-->
+        <!--{/if}-->
+    </td>
+    <td><!--{$item.ratio}-->%</td>
+    <td>
+    <!--{if $item.diff > 0}-->
+        <b style="color:green;">&uarr;+<!--{$item.diff}-->%</b>
+    <!--{elseif $item.diff < 0}-->
+        <b style="color:red;">&darr;<!--{$item.diff}-->%</b>
+    <!--{elseif $item.diff}-->
+        <b style="color:gray;">&ndash;<!--{$item.diff}-->%</b>
+    <!--{else}-->
+        <b style="color:gray;"></b>
+    <!--{/if}-->
+    </td>
+  </tr>
+  
+  <!--{/foreach}-->
+  
+  <tr style="background:#FFC; font-weight:bold;">
+    <td>合计</td>
+    <td>&nbsp;</td>
+    <td><!--{$data.week_total}--></td>
+    <td>&nbsp;</td>
+    <td>
+    <!--{if $data.week_diff > 0}-->
+        <b style="color:green;">&uarr;+<!--{$data.week_diff}-->%</b>
+    <!--{elseif $data.week_diff < 0}-->
+        <b style="color:red;">&darr;<!--{$data.week_diff}-->%</b>
+    <!--{elseif $data.week_diff}-->
+        <b style="color:gray;">&ndash;<!--{$data.week_diff}-->%</b>
+    <!--{else}-->
+        <b style="color:gray;"></b>
+    <!--{/if}-->
+    </td>
+  </tr>
+</table>
+
+<p><span style="color:green;">&hearts; 最高值</span>　<span style="color:red;">&hearts; 最低值</span></p>
+<hr style="border:none; height:0; border-top: 1px solid #efefef;" />
+<p><strong style="color:#06C;">频道概况</strong></p>
+
+<table width="100%" border="1" cellpadding="8" cellspacing="0" bordercolor="#CCCCCC" style="font-size:13px; border-collapse:collapse;">
+  <tr style="background:#4A98EE; color:#fff; font-weight:bold;">
+    <td width="50">频道</td>
+    <td>周一</td>
+    <td>周二</td>
+    <td>周三</td>
+    <td>周四</td>
+    <td>周五</td>
+    <td>周六</td>
+    <td>周日</td>
+    <td>总数</td>
+    <td width="70">相对上周</td>
+  </tr>
+  
+  <!--{foreach from=$data.cate key=cate item=item}-->
+  
+  <tr style="background:<!--{cycle values=",#EFEFEF"}-->;">
+    <td><!--{$cate}--></td>
+    
+    <!--{section name=customer loop=8 start=1}-->
+    <td bgcolor="<!--{if $smarty.section.customer.index>5}-->#DBF0FD<!--{/if}-->">
+        <!--{if $item.week[$smarty.section.customer.index].ismax}-->
+              <b style="color:green;"><!--{$item.week[$smarty.section.customer.index].value}--></b>
+        <!--{elseif $item.week[$smarty.section.customer.index].ismin}-->
+            <b style="color:red;"><!--{$item.week[$smarty.section.customer.index].value}--></b>
+        <!--{else}-->
+            <!--{$item.week[$smarty.section.customer.index].value}-->
+        <!--{/if}-->
+    </td>
+    <!--{/section}-->
+    <td><b style="color:green;"><!--{$item.stat}--></b></td>
+    <td>
+    <!--{if $item.diff > 0}-->
+        <b style="color:green;">&uarr;+<!--{$item.diff}-->%</b>
+    <!--{elseif $item.diff < 0}-->
+        <b style="color:red;">&darr;<!--{$item.diff}-->%</b>
+    <!--{elseif $item.diff}-->
+        <b style="color:gray;">&ndash;<!--{$item.diff}-->%</b>
+    <!--{else}-->
+        <b style="color:gray;"></b>
+    <!--{/if}-->
+    </td>
+  </tr>
+  
+  <tr>
+    <td></td>
+    <!--{section name=customer loop=8 start=1}-->
+    <td><em><!--{$item.week[$smarty.section.customer.index].ratio}-->%</em></td>
+    <!--{/section}-->
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  
+  <!--{/foreach}-->
+  
+  <tr style="background:#FFC; font-weight:bold;">
+    <td>合计</td>
+    <!--{foreach from=$data.week key=date item=item}-->
+    <td><!--{$item.value}--></td>
+    <!--{/foreach}-->
+    <td><!--{$data.week_total}--></td>
+    <td>
+    <!--{if $data.week_diff > 0}-->
+        <b style="color:green;">&uarr;+<!--{$data.week_diff}-->%</b>
+    <!--{elseif $data.week_diff < 0}-->
+        <b style="color:red;">&darr;<!--{$data.week_diff}-->%</b>
+    <!--{elseif $data.week_diff}-->
+        <b style="color:gray;">&ndash;<!--{$data.week_diff}-->%</b>
+    <!--{else}-->
+        <b style="color:gray;"></b>
+    <!--{/if}-->
+    </td>
+  </tr>
+</table>
+
+<p><span style="color:green;">&hearts; 最高值</span>　<span style="color:red;">&hearts; 最低值</span></p>
+
+<!--{foreach from=$data.cate key=cate item=item}-->
+<hr style="border:none; height:0; border-top: 1px solid #efefef;" />
+<p><strong style="color:#06C;">本周热门 - <!--{$cate}--></strong></p>
+<table width="100%" border="1" cellpadding="8" cellspacing="0" bordercolor="#CCCCCC" style="font-size:13px; border-collapse:collapse;">
+    <tr style="background:#4A98EE; color:#fff; font-weight:bold;">
+        <td width="50">&nbsp;</td>
+        <td>链接标题</td>
+        <td>起止时间</td>
+        <td width="70">点击</td>
+    </tr>
+    <!--{foreach name=customer from=$data.hots[$cate] key=hash item=item}-->
+    <tr style="background:<!--{cycle values=",#EFEFEF"}-->;">
+        <td><!--{$smarty.foreach.customer.index+1}--></td>
+        <td><a href="<!--{$item.link}-->" target="_blank"><!--{$item.title}--></a></td>
+        <td><!--{$item.start|date_format:"%m/%d"}--> - <!--{$item.final|date_format:"%m/%d"}--></td>
+        <td><b style="color:green;"><!--{$item.click}--></b></td>
+    </tr>
+    <!--{/foreach}-->
+</table>
+<p><em>&oplus;只显示排名前10位链接信息</em></p>
+
+<hr style="border:none; height:0; border-top: 1px solid #efefef;" />
+<p><strong style="color:#06C;">最近走势 - <!--{$cate}--></strong></p>
+<table width="100%" border="1" cellpadding="5" cellspacing="0" bordercolor="#CCCCCC" style="font-size:12px; border-collapse:collapse; text-align:center;">
+    <tr style="background:#95AAB3; color:#fff; font-weight:bold; text-align:center;">
+        <!--{foreach name=customer from=$data.trend[$cate] key=date item=item}-->
+        <td title="<!--{if $item.label}--><!--{$item.label}-->月<!--{/if}-->" style="<!--{if $item.weekend}-->color:red;<!--{/if}--><!--{if $item.label}-->background:#47616D;<!--{/if}-->"><!--{$date|substr:8}--></td>
+        <!--{/foreach}-->
+    </tr>
+    <tr valign="bottom" align="center">
+        <!--{foreach name=customer from=$data.trend[$cate] key=hash item=item}-->
+        <td title="<!--{$item.value}-->" bgcolor="<!--{if $item.label}-->#DBF0FD<!--{/if}-->"><div style="width:10px; height:<!--{$item.ratio}-->px; background:<!--{color}-->;"></div></td>
+        <!--{/foreach}-->
+    </tr>
+    <tr>
+        <!--{foreach name=customer from=$data.trend[$cate] key=hash item=item}-->
+        <td><!--{if $item.ismax}--><span style="color:green;">&hearts;</span><!--{/if}--><!--{if $item.ismin}--><span style="color:red;">&hearts;</span><!--{/if}--></td>
+        <!--{/foreach}-->
+    </tr>
+</table>
+<p><em>&oplus;只显示最近30天的点击走势</em></p>
+
+<!--{/foreach}-->
+<!--主体内容-->

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+	<item label="模板设置"/>
+	
+	<key name="templet" type="select" folder="/module/passport/theme/" label="公共头尾：" comment=" 默认为当前通行证模板，否则以当前设置为准" data-valid-empty="yes">
+		<option value="">默认</option>
+	</key>
+	
+</config>

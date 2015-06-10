@@ -1,0 +1,19 @@
++--------------------------------------+
+			VeryIDE Bee 编码转换说明
++--------------------------------------+
+
+1.下载文件编码转换软件：http://www.veryide.com/downloads/GB2UTF81.3.exe
+
+2.添加当前目录
+
+3.填写文件类型：*.sql|*.php|*.htm
+
+4.原文件编码：GB		转换后编码：UTF-8   无 BOM
+
+5.开始转换
+
+6.修改 config/version.php 中 $_G['product']['charset'] 值为 utf-8
+
+7.安装 VeryIDE Bee
+
+8.Good Luck!

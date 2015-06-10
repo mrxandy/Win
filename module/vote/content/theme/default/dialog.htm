@@ -1,0 +1,44 @@
+<!--{if $form.form.config.USER_MODE == "ANY" && ( $form.form.config.ANY_USERNAME || $form.form.config.ANY_NAME || $form.form.config.ANY_QQ || $form.form.config.ANY_EMAIL || $form.form.config.ANY_PHONE || $form.form.config.ANY_IDCARD || $form.form.config.ANY_COMPANY ) OR $form.form.config.VERIFY_CAPTCHA}-->
+ 
+<div id="dialog" data-object="dialog">
+
+	<h3>填写信息，完成投票</h3>
+	
+    <!--{if $form.form.config.ANY_USERNAME}-->
+    <p><strong>账号名称：</strong><input type="text" size="25" name="extend[USERNAME]" class="text" value="<!--{$_G.member.username}-->" data-valid-name="您的用户名" data-valid-empty="yes" /></p>
+    <!--{/if}-->
+    
+    <!--{if $form.form.config.ANY_NAME}-->
+    <p><strong>真实姓名：</strong><input type="text" size="25" name="extend[NAME]" class="text" value="<!--{$_G.member.name}-->" data-valid-name="您的姓名" data-valid-empty="yes" /></p>
+    <!--{/if}-->
+    
+    <!--{if $form.form.config.ANY_QQ}-->
+    <p><strong>Q Q号码：</strong><input type="text" size="25" name="extend[QQ]" class="text" value="<!--{$_G.member.qq}-->" data-valid-name="您的QQ" data-valid-number="yes" /></p>
+    <!--{/if}-->
+    
+    <!--{if $form.form.config.ANY_EMAIL}-->
+    <p><strong>邮箱地址：</strong><input type="text" size="25" name="extend[EMAIL]" class="text" value="<!--{$_G.member.email}-->" data-valid-name="您的邮箱" data-valid-email="yes" /></p>
+    <!--{/if}-->
+    
+    <!--{if $form.form.config.ANY_PHONE}-->
+    <p><strong>手机号码：</strong><input type="text" size="25" name="extend[PHONE]" class="text" value="<!--{$_G.member.phone}-->" data-valid-name="手机号码" data-valid-mobile="yes" /></p>
+    <!--{/if}-->
+    
+    <!--{if $form.form.config.ANY_IDCARD}-->
+    <p><strong>身份证号：</strong><input type="text" size="25" name="extend[IDCARD]" class="text" value="<!--{$_G.member.idcard}-->" data-valid-name="您的身份证" data-valid-idcard="yes" /></p>
+    <!--{/if}-->
+    
+    <!--{if $form.form.config.ANY_COMPANY}-->
+    <p><strong>单位名称：</strong><input type="text" size="25" name="extend[COMPANY]" class="text" value="<!--{$_G.member.company}-->" data-valid-name="您所在的单位名称" data-valid-empty="yes" /></p>
+    <!--{/if}-->
+
+    <!--{if $form.form.config.VERIFY_CAPTCHA}-->
+    <p><strong>验证数字：</strong><input type="text" size="10" name="<!--{$captcha}-->" class="text" maxlength="4" data-valid-name="验证码" data-valid-empty="yes" data-object="captcha-input" /> <img src="<!--{$_G.system.base}-->api.php?action=captcha" data-object="captcha-image" /></p>
+    <!--{/if}-->
+    
+    <p>
+        <strong></strong><button type='submit'>继续投票</button>
+    </p>
+	
+</div>
+<!--{/if}-->

@@ -1,0 +1,105 @@
+
+<!--{$_LOGIN}-->
+
+<!--表单验证 必需块-->
+<script type="text/javascript">
+Mo.ready(function(){
+	Mo("#select-vote li").bind('click',function( index, e ){
+		
+		Mo("#select-vote li").each(function( ){			
+			this.className = this.className.replace(" active","");			
+		});
+		
+		this.className += " active";
+		
+		Mo("#OBJECT").value( this.getAttribute("rel") );
+
+	});
+			
+	Mo("#form").bind('submit',function( index, e ){
+
+	Mo.Event( e ).stop();
+	var form = this;
+		var result= Mo.ValidForm( this, function(i){
+			/*未加载 Effect 组件*/
+			if( Mo.Array(Mo.plugin).indexOf('ui') == -1 ){
+				alert(i);
+			}else{
+				Mo.Message( 'error', i, 3, { "unique" : "error", "center" : true } );
+			}
+
+		});
+		result && form.submit();
+	});
+});
+</script>
+<!--表单验证 必需块-->
+
+<!--表单主体 内容块-->
+<form id='form' name="form" data-appid="pk" enctype='multipart/form-data' method='post' action='<!--{$Index}-->?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&action=post&id=<!--{$form.form.id}-->'>
+    <input type='hidden' value='<!--{$verify}-->' name='verify' />
+    <input type='hidden' name='OBJECT' id='OBJECT' value='' data-valid-name='正反方' data-valid-empty='yes' />
+    
+    <ul id="select-vote">
+        <li id="posi-box" class="positive" rel="POSITIVE"><!--{$form.form.config.POSITIVE_POINT}--><b id="posi-vote"><!--{$form.form.config.POSITIVE_RESULT}-->(<!--{$form.form.config.POSITIVE}-->)</b> </li>
+        <li id="nega-box" class="negative" rel="NEGATIVE"><!--{$form.form.config.NEGATIVE_POINT}--><b id="nega-vote"><!--{$form.form.config.NEGATIVE_RESULT}-->(<!--{$form.form.config.NEGATIVE}-->)</b> </li>
+    </ul>
+
+    <!--{if $form.form.config.HIDE_MESSAGE=="N"}-->
+
+        <div id='message'>
+        
+            <p>我的评论：</p>
+            <p>
+                <textarea name='MESSAGE' id='MESSAGE' cols='50' rows='4' data-valid-name='我的评论' data-valid-empty='yes'></textarea>
+            </p>
+        
+            <p id='form-smile' class='smile'></p>
+        
+        </div>
+    
+    <!--{/if}-->
+
+    <div id='send'>
+    
+        <!--{if $form.form.config.USER_MODE == "ANY" && ( $form.form.config.ANY_USERNAME || $form.form.config.ANY_NAME || $form.form.config.ANY_PHONE || $form.form.config.ANY_IDCARD  || $form.form.config.ANY_COMPANY ) }-->
+            <p>
+                <!--{if $form.form.config.ANY_USERNAME}-->
+                用户名：<input type="text" size="20" name="extend[USERNAME]" class="text" value="<!--{$_G.member.username}-->" data-valid-name="您的用户名" data-valid-empty="yes" />
+                <!--{/if}-->
+                <!--{if $form.form.config.ANY_NAME}-->
+                姓名：<input type="text" size="20" name="extend[NAME]" class="text" value="<!--{$_G.member.name}-->" data-valid-name="您的姓名" data-valid-empty="yes" />
+                <!--{/if}-->
+                <!--{if $form.form.config.ANY_QQ}-->
+                Q Q：<input type="text" size="20" name="extend[QQ]" class="text" value="<!--{$_G.member.qq}-->" data-valid-name="您的QQ" data-valid-empty="yes" data-valid-number="yes" />
+                <!--{/if}-->
+                <!--{if $form.form.config.ANY_EMAIL}-->
+                邮箱：<input type="text" size="20" name="extend[EMAIL]" class="text" value="<!--{$_G.member.email}-->" data-valid-name="您的邮箱" data-valid-empty="yes" data-valid-email="yes" />
+                <!--{/if}-->
+                <!--{if $form.form.config.ANY_PHONE}-->
+                手机：<input type="text" size="20" name="extend[PHONE]" class="text" value="<!--{$_G.member.phone}-->" data-valid-name="手机号码" data-valid-empty="yes" data-valid-mobile="yes" />
+                <!--{/if}-->
+                <!--{if $form.form.config.ANY_IDCARD}-->
+                身份证：<input type="text" size="20" name="extend[IDCARD]" class="text" value="<!--{$_G.member.idcard}-->" data-valid-name="您的身份证" data-valid-idcard="yes" />
+                <!--{/if}-->
+                <!--{if $form.form.config.ANY_COMPANY}-->
+                单位名称：<input type="text" size="20" name="extend[COMPANY]" class="text" value="<!--{$_G.member.company}-->" data-valid-name="您所在的单位名称" data-valid-idcard="yes" />
+                <!--{/if}-->
+            </p>
+        <!--{/if}-->
+    
+        <p>
+        <!--{if $form.form.start<time() && $form.form.expire>time() && $form.form.state>0 }-->
+            <input type='submit' class='submit' value='提交表单' />
+        <!--{else}-->
+            <input type='submit' class='submit' value='<!--{if $form.form.expire<time()}-->表单过期<!--{else}-->暂未启用<!--{/if}-->' disabled='disabled' />
+        <!--{/if}-->
+        
+        <!--{if $form.form.config.HIDE_COUNT !== "Y"}-->
+            <input type='button' class='submit' name='button' onclick='location.href="<!--{$Index}-->?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&action=result&id=<!--{$form.form.id}-->";' value='查看结果' />
+        <!--{/if}-->
+        </p>
+    </div>
+
+</form>
+<!--表单主体 内容块-->

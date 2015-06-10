@@ -1,0 +1,25 @@
+	
+	/*
+	[name]Hello Kitty[/name]
+	*/
+	
+
+	#wrapper{  background:url(pic/background.jpg) center center; background-size: cover; }
+	
+	/*
+		桌面
+	*/
+	#container{ background:none; }
+		
+		#module dl dt{ color:#36C;  background:url(pic/c.png) left center no-repeat; border-bottom:#ccc solid 2px;}
+			#module dl dt strong{ width:80px;  color:#333; }
+		
+		/*
+			背景
+		*/
+		#module dl dd ul li a{ color:#fff; }		
+		#module dl dd ul li span{ background:url(pic/a.png) center center no-repeat; }		
+
+		#footer{ /*background-color:#fff; filter:alpha(opacity=50); opacity:0.5;*/ }
+
+			#footer *{ position:relative;}

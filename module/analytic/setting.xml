@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+	<item label="全局控制"/>
+	
+	<key name="views" type="radio" label="显示统计：" >
+		<option value="on">开启</option>
+		<option value="off">关闭</option>
+	</key>
+	
+	<key name="click" type="radio" label="点击统计：" >
+		<option value="on">开启</option>
+		<option value="off">关闭</option>
+	</key>
+	
+</config>

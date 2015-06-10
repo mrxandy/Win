@@ -1,0 +1,48 @@
+/* 订阅样式 */
+
+/* Post */
+
+#feed{ }
+
+#feed .feed {
+	line-height:22px;
+}
+	
+	#feed .feed p{
+		line-height:24px;
+	}
+
+	#feed .feed .title {
+		font-size: 14px;
+		color:#666;
+		background:#efefef;
+		padding:5px 10px;
+		margin:0;
+		border-radius: 5px;
+	}
+	
+	#feed .feed .meta {
+		font-family: Arial, Helvetica, sans-serif;
+		font-weight: normal;
+		color: #ccc;
+		padding:0 10px; margin:0;
+	}
+	
+	#feed .feed .meta a{
+		color: #999;
+	}
+	
+	#feed .feed .entry {
+		margin-bottom: 10px;
+		padding:5px 10px;
+		color:#333;
+		font-size:14px;
+	}
+	
+	#feed .feed .links {
+		margin-top:15px;
+		display:inline-block;
+		color: #666666;
+		background:url(pic/new.gif) center right no-repeat;
+		padding-right:15px;
+	}

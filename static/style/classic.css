@@ -1,0 +1,166 @@
+@charset "utf-8";
+
+
+/*html*/
+html{ overflow:hidden; background:#F6F9FB;  font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3", 'helvetica neue', 'stheiti', 'microsoft yahei', '\5FAE\8F6F\96C5\9ED1',tahoma,sans-serif; -webkit-font-smoothing: antialiased; font-size: 12px; clear:both;}
+
+html,body,form,ul,li {margin:0;padding:0;list-style:none;}
+
+body, td, input, textarea, select, button{ color:#555;  }
+
+select { vertical-align:middle;}
+textarea{ width:500px;border:1px solid #718da6; line-height:18px;}
+input {padding:3px; vertical-align:middle;}
+button {vertical-align:middle;}
+
+/* form */
+textarea, input{ padding:3px; border:1px solid #ccc; border-color:#666 #ccc #ccc #666; background:#F9F9F9; color:#333; }
+select{ padding:1px; border:1px solid #ccc; border-color:#666 #ccc #ccc #666; background:#F9F9F9; color:#333; }
+input.text, select{ vertical-align:middle; }
+select{ font-size:13px; }
+
+/*
+	文本框样式
+*/
+input.text:hover, input.text:focus, input.datetime:hover, input.datetime:focus, textarea:hover, textarea:focus{ border-color:#09C; background-color:#fff; }
+
+p{ padding:2px; margin:2px;}
+hr{color:#efefef; height:1px; clear:both; border:#efefef solid 1px;}
+label{ color:#666;}
+img {border:none; vertical-align:middle;}
+a {text-decoration:none;cursor:pointer;}
+	a,a:link,a:visited{color:#1E5494;}
+	a:hover{ text-decoration:none; }
+
+/********* top ********/
+
+#wrapper{ height:100%; overflow:hidden;}
+
+/*
+	页头
+*/
+#header{ height:51px; background:url(pic/bg.png) 0 0 repeat-x; overflow:hidden; padding:5px;}
+	#header.cloud{ height:49px; background:url(pic/cloud.png) repeat-x; border-bottom:#4C94EA solid 2px;}
+	#header a{color:#45649E;}
+	#header span{color:#FF6600;}
+	#header strong{color:#333333; font-size:14px;}
+
+	/*
+		logo
+	*/
+	#header-logo{float:left; margin:-5px 1px; background:url(pic/bg.png) -20px -70px repeat-x; width:140px; height:42px; padding:10px; color:#999; padding-top:25px; text-align:center; }
+		#header-logo.cloud{ background:url(pic/bg.png) 0 -530px no-repeat;}
+		#header-logo.cloud a{ color:#45649E;}
+		#header-logo a{ font-size:20px; text-decoration:none; color:#666666; font-weight:normal;}
+	
+	/*
+		用户状态
+	*/
+	#header-info{ float:left;margin:2px 0; line-height:22px; width:400px; color:#666;}
+		#bind_avatar{ float:left; border:#599CE0 solid 1px; padding:2px; margin:0 10px; border-radius: 3px;}
+			#bind_avatar img{ width:40px; height:40px;}
+	
+	/*
+		顶部右侧
+	*/
+	#header-tool{text-align:right; width:200px; float:right; color:#999; line-height:22px;}
+		#header-tool img{ vertical-align:middle;margin:3px 0;}
+		
+	/*
+		顶部链接
+	*/
+	#header-links{ text-align:right; height:22px; overflow:hidden;}
+		#header-links a{ color:red;}
+	
+	/*
+		顶部搜索
+	*/
+	#header-search{ text-align:right;}
+		#header-search input{ border-color:#09C; vertical-align:middle; width:180px; background:#fff url(pic/bg.png) -5px -255px no-repeat; color:#999; border-radius: 3px; }
+		#header-search input.active{ color:#333;}
+	
+	/*
+		浮动菜单
+	*/
+	#collect{ position:absolute; padding:5px; overflow:auto; overflow-x:hidden; height:400px; border:#599CE0 solid 1px; border-radius: 4px; background:#fff; box-shadow: 1px 2px 2px #C3D3DF; }
+		#collect div{ background:#E9F3FD; padding:5px; clear:both; font-weight:bold;}
+			#collect div img{width:16px; height:16px; margin-right:5px;}
+		#collect ul{ margin:5px; line-height:20px; clear:both; width:300px; background:#fff; overflow:hidden;}
+			#collect ul li{ float:left; width:25%; background:#fff; text-align:center;}
+			#collect ul li.active{ background:#efefef;}
+			
+	/*
+		新年图标
+	*/
+	#newyear{z-index: 100; width:58px; position: absolute; top:0; left:155px;}
+		#newyear.spring{ left:140px;}
+		
+	/*
+		积雪
+	*/
+	#snow{background:url(pic/snow.gif) repeat-x; height:15px; width:100%; position:absolute; top:44px; left:0; overflow:hidden;}
+
+/*
+	小控件
+*/
+#control{ background:url(pic/bg.png) -10px -660px no-repeat; width:9px; height:31px; position:absolute; top:130px; left:151px; z-index: 999; cursor:pointer;}
+	#control.left{ left:0px; background:url(pic/bg.png) -30px -660px no-repeat; }
+
+/*
+	侧边栏
+*/
+#sidebar{width:140px; padding:5px 10px; float:left; height:100%; overflow:hidden; border-right:#4C94EA solid 2px; background:#fff; display:inline;/*IE6 Bug*/ }
+
+	#sidebar-search{ line-height:25px; height:25px;}			
+		#sidebar-search ul{ padding:0; margin:0; overflow:hidden;}
+			#sidebar-search li{ float:left; width:33%; text-align:center;}
+			#sidebar-search img{ width:16px;}
+	
+	#sidebar-menu{}
+	
+		#menu-title{ background:#DEEAF8; border-top:#4C94EA solid 1px; padding:5px 8px 0 8px; font-weight:bold; overflow:hidden;}
+			#menu-title strong{ background:#fff; float:left; padding:5px 10px; color:#666666;}
+			#menu-title span{ float:right; cursor:pointer; width:8px; height:9px; margin:6px 5px; background:url(pic/bg.png) -10px -160px no-repeat;}
+			#menu-title span.active{background:url(pic/bg.png) -10px -200px no-repeat;}		
+			#menu-title span.custom{background:url(pic/bg.png) -80px -390px no-repeat; width:10px; height:10px;}
+			
+		/*powered*/
+		#menu-powered{ text-align:center; color:#999; margin:20px auto;}
+		
+		/*adsense*/
+		#menu-adsense{ text-align:center; padding:5px; width:120px; height:240px; margin:auto;}
+		
+		/*link*/
+		#menu-link{margin-top:8px; overflow:auto; overflow-x:hidden; color:#008000; clear:both; }
+			
+			#menu-link div{font-weight:bold; cursor:pointer; line-height:25px; _padding:5px 0;}
+			#menu-link div.active{color:#1E5494;}
+			#menu-link div img{ margin-right:8px; margin-left:5px; vertical-align:middle; width:16px; height:16px;}
+			
+			#menu-link ul{ }
+				#menu-link ul li{line-height:25px; }
+					#menu-link ul li a{ text-decoration:none; display:block; width:100%; text-indent:28px; border-radius: 3px;}
+						#menu-link ul li a:hover{ background:#CCE0F5;}
+						
+				#menu-link ul li.active a{color:#fff; text-decoration:none;}
+					#menu-link ul li.active a:hover,#menu-link ul li.active a:link,#menu-link ul li.active a:visited{background-color:#4B90B2;}
+		
+/*
+	主框架
+*/
+#container{ margin-left:162px; font-size: 0; }
+
+	#container.welt{ margin-left: 0;}
+	#container iframe{ width:90%; height:99%;}
+
+	/* iPad iFrame 修正 */
+	@media only screen and (device-width: 768px) {
+		#container{ overflow:auto; -webkit-overflow-scrolling:touch; }
+	}
+	
+/* 顶部通栏 */
+#banner{ padding: 0; height: auto; }
+	#banner img{ height: 59px; width: auto; }
+			
+/* 云平台 */
+.vcloud{ bottom: 10px; }

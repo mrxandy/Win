@@ -1,0 +1,53 @@
+<!--{if $form.form.config.HIDE_RESULT == "Y"}-->
+
+	<div id="post" class="error">
+		<p>
+			抱歉，当前统计结果暂不开放！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>
+	</div>
+
+<!--{else}-->
+		
+    <script type="text/javascript">var P = new Mo.Process();</script>
+    
+    <table id="result" border="0" cellpadding="3" cellspacing="1">
+		
+		<!--{foreach from=$form.group key=gid item=group}-->
+		
+            <tr class="title">
+                <td class="tag-id"></td>
+                <td class="tag-option"><strong><!--{$group.name}--></strong></td>
+                <td class="tag-scale"><!--{$_G.module.vote.group[$group.type]}--></td>
+            </tr>
+        
+			<script type="text/javascript">var G = new P.Group('<!--{$group.id}-->');</script>
+
+			<!--{foreach from=$form.option[$gid] key=oid item=option}-->
+
+			<tr class="line">
+				<td><!--{$option.id}--></td>
+				<td><!--{$option.name}--></td>
+				<td>
+					<span class="count"><!--{$option.stat}--> 票</span>
+					<span id="percent-<!--{$option.id}-->">0%</span>
+					<div class="ratio"><span id="option-<!--{$option.id}-->" style="background:<!--{color}-->;" /></div>
+				</td>
+			</tr>
+    
+			<script type="text/javascript">G.Option('<!--{$option.id}-->','<!--{$option.stat}-->');</script>
+
+			<!--{/foreach}-->
+
+		<!--{/foreach}-->
+		
+	</table>
+	
+	<div id='send'>
+		<p>
+		<input type='button' class='submit' name='button' onclick='location.href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->";' value='返回活动' />
+		</p>
+	</div>
+    
+    <script type="text/javascript">P.Show();</script>
+    
+<!--{/if}-->

@@ -1,0 +1,58 @@
+﻿
+.ubb{height:25px; line-height:18px;}
+
+.ubb-img {width:22px; height:19px; margin:0 2px 0 0; cursor:pointer; background:url(pic/ubb.gif);padding:1px; vertical-align:middle; overflow:hidden;}
+.ubb-img:hover{border:#999 solid 1px; border-width:0 1px 1px 0; padding:0 1px 1px 0;}
+
+.ubb-menu{ border:1px solid #ccc; background:#fff; padding:5px; position: absolute; margin-top:20px;} 
+	.ubb-menu ul {padding:0;margin:0; list-style:none; line-height:22px;}
+	.ubb-menu li {padding:0 5px;margin:0; font-size:12px; cursor:pointer; color:#639907;}
+	.ubb-menu li:hover {background:#efefef;text-decoration: none;}
+
+.ubb-smile{ width:140px;} 
+	.ubb-smile li { width:20%; float:left; text-align:center; padding:5px 0;}
+
+.ubb-color{ width:80px;} 
+	.ubb-color li { width:30px; float:left; text-align:center;}
+
+/*
+.editor{font-size:14px;color: #246F00;border:1px solid #A9C9E2; width:auto}
+.editor ul {padding:15px;margin:0px;display:block;}
+.editor li{ list-style:none;height:24px;padding:5px;}
+
+.editor dl {padding:12px;margin:0px;display:block;}
+
+/**/
+
+.img-font{background-position:-3px -1px;}
+.img-size{background-position:-31px -1px;}
+.img-color{background-position:-57px -1px;}
+.img-bold{background-position:-82px -1px;}
+.img-italic{background-position:-102px -1px;}
+.img-under{background-position:-123px -1px;}
+.img-left{background-position:-145px -1px;}
+.img-center{background-position:-167px -1px;}
+.img-right{background-position:-191px -1px;}
+
+.img-link{background-position:-217px -1px;}
+.img-image{background-position:-244px -1px;}
+.img-flash{background-position:-267px -1px;}
+.img-video{background-position:-292px -1px;}
+.img-mp3{background-position:-315px -1px;}
+
+.img-quote{background-position:-339px -1px;}
+.img-hidden{background-position:-362px -1px;}
+.img-code{background-position:-574px -1px;}
+.img-smile{background-position:-502px -1px;}
+
+.img-zoom {background-position:-477px -1px;}
+.img-zoomin{background-position:-432px -1px;}
+.img-zoomout{background-position:-455px -1px;}
+
+.img-about{background-position:-409px -1px;}
+.img-html{background-position:-385px -1px;}
+
+.img-resize{ cursor:pointer; background:url(pic/ubb.gif); background-position:-680px -4px; width:12px; height:12px;}
+
+.ubb-stat{padding:2px;}
+

@@ -1,0 +1,49 @@
+
+	<table id="result" border="0" cellpadding="3" cellspacing="1">
+		<tr class="title">
+			<td class="tag-id">ID</td>
+			<td><strong>用户名</strong></td>
+			<td>状态</td>
+			<td>参与时间</td>
+		</tr>
+		
+		<!--{foreach from=$result key=id item=value}-->
+
+			<!--{if $option.gid eq $gid}-->
+
+				<!--{if $group.type eq "radio"}-->
+					<label><input type='radio' class='radio' name='G-<!--{$group.id}-->' value='<!--{$option.id}-->' data-valid-name='<!--{$group.name}-->'  /> <!--{$option.name}--></label>
+				<!--{/if}-->
+
+				<!--{if $group.type eq "checkbox"}-->
+					<label><input type='radio' class='radio' name='G-<!--{$group.id}-->' value='<!--{$option.id}-->' data-valid-name='<!--{$group.name}-->'  /> <!--{$option.name}--></label>
+				<!--{/if}-->
+
+				<!--{if $group.type eq "select"}-->
+					<option value='<!--{$option.id}-->' data-valid-name='<!--{$group.name}-->'> <!--{$option.name}--></option>
+				<!--{/if}-->
+
+			<!--{/if}-->
+			
+			<tr class="line">
+				<td><!--{$value.id}--></td>
+				<td><!--{$value.username}--></td>
+				<td><!--{$sign[$value.state]}--></td>
+				<td><!--{$value.dateline|date_format:"%Y/%m/%d %H:%M:%S"}--></td>
+			</tr>
+
+		<!--{/foreach}-->
+
+	</table>	
+	
+	<!--{$multi}-->
+	
+	<div id='send'>
+		<p>
+		<input type='button' class='submit' name='button' onclick='location.href="?id=<!--{$form.form.id}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->";' value='返回活动' />
+		<input type='button' class='submit' name='button' onclick='window.close();' value='关闭窗口' />
+		</p>
+	</div>
+
+
+

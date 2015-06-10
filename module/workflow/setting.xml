@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+	<item label="项目相关"/>
+	
+	<key name="category" type="textarea" rows="5" cols="80" label="内容分类：" comment=" &lt;br /&gt;内容的分类，两个分类之间用空隔隔开"></key>
+
+	<item label="帖子相关"/>
+	
+	<key name="apply" type="radio" label="使用仓库：" >
+		<option value="on">开启</option>
+		<option value="off">关闭</option>
+	</key>
+	
+	<key name="thread" type="text" label="帖子地址：" comment=" &lt;br /&gt;变量 $TID 用来替换帖子 ID" size="80" />
+	
+	<key name="reply" type="text" label="回帖地址：" comment=" &lt;br /&gt;变量 $TID 用来替换帖子 ID，变量 $PID 用来替换楼层 ID" size="80" />
+	
+	<key name="usergroup" type="text" label="限用户组：" comment=" 对所填用户组开放，参考链接：&lt;a href='http://www.veryide.com/guide.php?appid=passport&amp;id=71' target='_blank'&gt;点这里查看&lt;/a&gt;" data-valid-empty="true" data-valid-number="true" size="40" />
+
+	<item label="工资相关"/>
+	
+	<!--key name="work_price" type="text" label="出勤工资：" comment=" 元 / 每天" size="40" />
+	
+	<key name="diary_price" type="text" label="日志工资：" comment=" 元 / 每天" size="40" /-->
+	
+	<key name="late_price" type="text" label="迟到扣款：" comment=" 每次多少元" size="40" />
+	
+	<key name="fund_ratio" type="text" label="基金比例：" comment=" %，当月工资的百分比" size="40" />
+	
+	<key name="thread_radix" type="text" label="新增主题：" comment=" 个，超过时忽略，不足时自动换算" size="40" />
+	
+	<key name="reply_radix" type="text" label="新增回复：" comment=" 个，超过时忽略，不足时自动换算" size="40" />
+	
+</config>

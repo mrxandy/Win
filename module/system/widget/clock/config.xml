@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 桌面工具示例文件 -->
+<widget>
+
+	<!-- 工具名称 -->
+	<name>黑色时钟</name>
+		
+	<!-- 展示尺寸 -->
+	<width>150</width>
+	<height>150</height>
+
+	<!--从左上取参考位置-->
+	<x>1000</x>
+	<y>90</y>
+	
+	<!--从右下取参考位置-->
+	<fx>170</fx>
+	<fy>450</fy>
+	
+	<!--
+		内容块，支持以下变量：
+		{HOST}		系统地址，绝对地址
+		{MODULE}	模块系统目录，相对地址
+		{WIDGET}		当前插件目录，相对地址		
+		{APPID}		当前模块ID
+		{WGTID}	当前插件ID
+		
+		draggable	是否允许拖动
+	-->
+	<html draggable="true"><![CDATA[
+		<embed src="{WIDGET}clock.swf" wmode="transparent" width="150" height="150" swliveconnect="true" type="application/x-shockwave-flash"></embed>
+	]]></html>
+</widget>

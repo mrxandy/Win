@@ -1,0 +1,68 @@
+/* 颜色选择器 */
+.mo-color{ border:solid #666 1px; background:#f9f8f7; width:460px; padding:5px; overflow:hidden; }
+        .mo-color ul{ margin:0; padding:0; }
+        .mo-color ul li{ width:18px; height:18px; display:inline-block; float:left; border:#efefef solid 1px; }
+        .mo-color ul li:hover{ border:#666 solid 1px; }
+        .mo-color ul li.active{ border:#333 solid 1px; }
+        .mo-color ul li div{ width:14px; height:14px; margin:2px; }
+
+
+/* 标签选择器 */
+.mo-soler{ border:#bbb solid 1px; padding:5px; background:#fff; position:absolute; width:294px; font-family:Verdana; line-height:22px; margin:0; }        
+		.mo-soler dt{ padding:0 5px; background:#efefef; color:#000; font-weight:bold; margin:5px 0; }        
+		.mo-soler dd{ width:100%; overflow:hidden; padding:0; margin:5px 0; }
+			.mo-soler dd ul{ padding:0; margin:0; list-style:none; padding-top:1px;  padding-left:1px; }
+			.mo-soler dd ul li{ background:#fff; cursor:pointer; float:left; text-align:center; border:#ccc solid 1px;  width:40px; overflow:hidden; margin-top:-1px; margin-left:-1px; }
+			.mo-soler dd ul li:hover{ background:#999; color:#fff; border:#ccc solid 1px;}
+			.mo-soler dd ul li.active{ background:#666; color:#fff;}
+
+
+/* 标签选择器 */
+.mo-cater{ border:#bbb solid 1px; padding:5px; background:#fff; position:absolute; width: 325px; font-family:Verdana; line-height:22px; margin:0; }        
+		.mo-cater dt{ padding:0 5px; background:#efefef; color:#000; font-weight:bold; margin:5px 0; }        
+		.mo-cater dd{ width:100%; overflow:hidden; padding:0; margin:5px 0; }
+			.mo-cater dd ul{ padding:0; margin:0; list-style:none; padding-top:1px;  padding-left:1px; }
+			.mo-cater dd ul li{ background:#fff; cursor:pointer; float:left; text-align:center; border:#ccc solid 1px;  width:80px; overflow:hidden; margin-top:-1px; margin-left:-1px; }
+			.mo-cater dd ul li:hover{ background:#999; color:#fff; border:#ccc solid 1px;}
+			.mo-cater dd ul li.active{ background:#666; color:#fff;}
+
+/* 页面消息 */	
+.mo-message{ margin:0; position:absolute; line-height:54px; z-index:110; background:#333; color:#fff; width:200px; padding:0 20px; text-align:center; top:300px; left:200px; font-size:16px;}
+
+
+/* 提示信息 */
+.mo-tips{ padding:8px; border:#666 solid 1px; line-height:14px; font-size:12px; color:#fff; background:#333; z-index:120;}
+	.mo-tips strong{ color:#333;}
+
+/* 操作窗口 */
+.mo-dialog{ position:absolute; background:#fff; overflow:hidden; font-size:14px;}
+	.mo-dialog{ border:#6B97C1 solid 2px; margin:0; padding:0; background:#fff; }		
+	.mo-dialog dt{background:#8BACCF; padding:5px; text-indent:5px; line-height:15px; color:#fff; font-weight:bold; border-bottom:#6B97C1 solid 1px; overflow:hidden;}
+	.mo-dialog dt.drag{ cursor:move;}
+		.mo-dialog dt strong{ float:left; display:inline-block; }
+		.mo-dialog dt span{ float:right; width:14px; height:14px; overflow:hidden; display:inline-block; cursor:pointer; margin:2px 5px; background:url(pic/mo-dialog.gif) no-repeat;}
+		
+		.mo-dialog dt .minimize{ background-position: 0 -30px;}
+		.mo-dialog dt .minimize:hover{ background-position: 0 -2px; }
+		
+		.mo-dialog dt .maximize{ background-position: -30px -30px;}
+		.mo-dialog dt .maximize:hover{ background-position: -30px -1px;}
+		
+		.mo-dialog dt .remove{ background-position: -58px -30px; }
+		.mo-dialog dt .remove:hover{ background-position: -58px -1px; }
+		
+		.mo-dialog dt .toggle{ background-position:-89px -30px;}
+		.mo-dialog dt .toggle:hover{ background-position:-89px -1px;}
+		
+		.mo-dialog dd{ padding:5px; margin:0;}
+		
+		.mo-dialog dd p{ padding:0; margin:10px; line-height:25px;}
+
+/* 窗口背景 */
+.mo-dialog-bg{ background:url(pic/mo-bg.png); }		
+
+/* 进度条 */
+.mo-process .count{ float:right;}
+	.mo-process .ratio{height:15px; display:block; float:left; background:#ccc url(pic/ratio.png) repeat; width:100%;}
+	.mo-process .ratio span{ display:inline-block; height:15px;}
+

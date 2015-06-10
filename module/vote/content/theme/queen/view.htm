@@ -1,0 +1,64 @@
+<!--{$_LOGIN}-->
+
+<form id='form' name="form" data-appid="vote" data-pull="<!--{$form.form.config.FORM_BUTTON_PULL}-->" method='post' action='<!--{$Index}-->?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&action=post&id=<!--{$form.form.id}-->'>
+	<input type='hidden' value='<!--{$keys}-->' name='keys' />
+	
+	<!--初始非按钮计数：0-->
+    <!--{counter start=0 name="nonbutton" assign="nonbutton" print=false}-->
+
+	<!--{foreach from=$form.group key=gid item=group}-->
+    <div class="voteBox">            
+	<ul>
+
+	<!--初始换行计数：0-->
+	<!--{counter start=1 name="index" assign="index" print=false}-->
+
+	<!--{foreach from=$form.option[$gid] key=oid item=option}-->
+	    
+		<li data-mark="option" data-option="<!--{$option.id}-->" <!--{if $index mod 3 eq 0}-->class="nobr"<!--{/if}-->>
+		<!--{option group=$group option=$option gid=$gid oid=$oid}-->
+		</li>
+		
+		<!--非按钮数+1-->
+        <!--{if $group.id == $gid && $group.type !="button"}-->
+            <!--{counter name="nonbutton" assign="nonbutton" print=false}-->
+        <!--{/if}-->
+		
+		<!--换行计数+1-->
+		<!--{counter name="index" assign="index" print=false}-->
+
+	<!--{/foreach}-->
+
+	</ul>
+      </div>
+      <!--{$group.multi}-->
+	<!--{/foreach}-->
+	
+	<!--{include file="dialog.htm"}-->
+	
+	<div id='send'>
+		<p>
+		<!--有非按钮投票时显示-->
+		<!--{if $nonbutton>0 }-->
+		
+		    <!--{if $form.form.start<time() && $form.form.expire>time() && $form.form.state>0 }-->
+			<button type='submit'>提交投票</button>
+		    <!--{else}-->
+			<button type='submit' disabled='disabled'><!--{if $form.form.expire<time()}-->投票过期<!--{else}-->暂未启用<!--{/if}--></button>
+		    <!--{/if}-->
+		
+		<!--{/if}-->
+		
+		<!--{if $form.form.config.JOIN_SHOW == "Y"}-->
+	        <button type='button' name='button' onclick='location.href="<!--{$Index}-->?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&action=join&id=<!--{$form.form.id}-->";'>报名参加</button>
+	    <!--{elseif $form.form.config.HIDE_COUNT !== "Y"}-->
+	        <button type='button' name='button' onclick='location.href="<!--{$Index}-->?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&action=result&id=<!--{$form.form.id}-->";'>查看结果</button>
+	    <!--{/if}-->
+		</p>
+    </div>
+
+</form>
+
+<!--表单验证 必需块-->
+<script type="text/javascript" src="<!--{$_CACHE.system.module.vote.index}-->js/app.js?ver=<!--{$_G.product.version}-->" charset="utf-8"></script>
+<!--表单验证 必需块-->

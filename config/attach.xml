@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+	<item label="基本设置"/>
+	
+	<key name="FTP_OPEN" type="radio" label="远程附件：">
+		<option value="true">使用FTP远程附件</option>
+		<option value="false">否</option>
+	</key>
+
+	<key name="FTP_HOST" type="text" label="服务器：" size="35" data-valid-empty="yes" width="80" />
+	<key name="FTP_PORT" type="text" format="number" label="端口号：" size="35" data-valid-empty="yes" />
+	
+	<key name="FTP_ROOT" type="text" label="上传目录：" size="35" data-valid-empty="yes" width="80" />
+	<key name="FTP_SITE" type="text" label="访问地址：" size="35" data-valid-empty="yes" />
+	
+	<key name="FTP_USER" type="text" label="验证帐号：" size="35" data-valid-empty="yes" align="right"/>
+	<key name="FTP_PASS" type="password" label="验证密码：" size="35" data-valid-empty="yes" align="right"/>
+
+	<key name="FTP_PASV" type="radio" label="被动模式：">
+		<option value="true">使用</option>
+		<option value="false">禁用</option>
+	</key>
+
+	<item label="水印设置"/>
+
+	<key name="MARK_OPEN" type="radio" label="图片水印：">
+		<option value="true">使用</option>
+		<option value="false">禁用</option>
+	</key>
+
+	<key name="MARK_POSITION" type="radio" label="水印位置：">
+		<option value="1">左上</option>
+		<option value="2">左下</option>
+		<option value="3">右上</option>
+		<option value="4">右下</option>
+		<option value="5">居中</option>
+	</key>
+	
+	<key name="MARK_MULTIPLE" type="select" label="水印时机：" comment=" 原图尺寸是水印图多少倍时打上水印">
+		<option value="1">1 倍以上</option>
+		<option value="2">2 倍以上</option>
+		<option value="3">3 倍以上</option>
+		<option value="4">4 倍以上</option>
+		<option value="5">5 倍以上</option>
+	</key>
+	
+	<key name="MARK_FILE" type="text" label="水印图片：" size="35" comment=" 请填写本地相对地址" data-valid-empty="yes" align="right"/>
+	
+	<key type="notice" label="水印预览：" comment="&lt;img src='../../api.php?action=preview&amp;time={$TIME}' /&gt;&lt;br /&gt;注意：水印开启后，并不会影响所有上传的图片，只会影响部分模块（比如：商铺）" />
+	
+</config>

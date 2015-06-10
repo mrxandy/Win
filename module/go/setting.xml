@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+	<item label="邮件报表"/>
+	
+	<key name="subject" type="text" label="邮件主题：" comment=" 支持变量：$DATE 当前日期 $WEEK 本周开始和结束时间" size="60" />
+	
+	<key name="receive" type="text" label="接收地址：" comment=" 邮箱地址，用于接收每周的邮件报表" size="60" data-valid-name="邮箱地址" data-valid-email="no" />
+	
+	<key name="copyto" type="text" label="抄送地址：" comment=" 邮箱地址，多个地址请用逗号分隔" size="60" />
+	
+</config>

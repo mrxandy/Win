@@ -1,0 +1,77 @@
+<!--{$_LOGIN}-->
+
+<!--表单主体 内容块-->
+<form id='form' name="form" data-appid="vote" data-pull="<!--{$form.form.config.FORM_BUTTON_PULL}-->" method='post' action='<!--{$Index}-->?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&action=post&id=<!--{$form.form.id}-->'>
+    <input type='hidden' value='<!--{$keys}-->' name='keys' />
+    
+    <!--初始非按钮计数：0-->
+    <!--{counter start=0 name="nonbutton" assign="nonbutton" print=false}-->
+
+    <!--{foreach from=$form.group key=gid item=group}-->
+
+    <dl id="group-<!--{$gid}-->" class="<!--{$group.type}-->">
+        <dt> <!--{$group.name}--></dt>
+        <dd>
+        
+            <!--{if $group.description}-->
+                <p><!--{$group.description}--></p>
+            <!--{/if}-->
+                        
+            <ul>
+            <!--{foreach from=$form.option[$gid] item=option}-->
+            
+            	<li style="width:<!--{math equation="x / y" x=100 y=$group.config.GROUP_BREAK}-->%; text-align:<!--{$group.config.GROUP_ALIGN}-->;" data-mark="option" data-option="<!--{$option.id}-->"><!--{option group=$group option=$option gid=$gid}--></li>
+                
+            <!--{/foreach}-->
+            </ul>
+            	
+        	<!--非按钮数+1-->
+            <!--{if $group.id == $gid && $group.type !="button"}-->
+                <!--{counter name="nonbutton" assign="nonbutton" print=false}-->
+            <!--{/if}-->
+            
+            <!--{if $form.form.config.FORM_BUTTON_POST == 'EACH' && $group.type !="button"}-->
+        	<div id='send'>
+                <!--{if $form.form.start<time() && $form.form.expire>time() && $form.form.state>0 }-->
+                    <button type='submit'>提交投票</button>
+                <!--{else}-->
+                    <button type='submit' disabled="disabled"><!--{if $form.form.expire<time()}-->投票过期<!--{else}-->暂未启用<!--{/if}--></button>
+                <!--{/if}-->
+            </div>
+            <!--{/if}-->
+            
+            <!--{$group.multi}-->
+        </dd>		
+    </dl>
+
+    <!--{/foreach}-->
+    
+    <!--{include file="dialog.htm"}-->
+
+    <div id='send'>
+        <p>
+        <!--有非按钮投票时显示-->
+        <!--{if $nonbutton>0 && $form.form.config.FORM_BUTTON_POST != 'EACH'}-->
+        
+            <!--{if $form.form.start<time() && $form.form.expire>time() && $form.form.state>0 }-->
+                <button type='submit'>提交投票</button>
+            <!--{else}-->
+                <button type='submit' disabled='disabled'><!--{if $form.form.expire<time()}-->投票过期<!--{else}-->暂未启用<!--{/if}--></button>
+            <!--{/if}-->
+        
+        <!--{/if}-->
+        
+        <!--{if $form.form.config.JOIN_SHOW == "Y"}-->
+            <button type='button' name='button' onclick='location.href="<!--{$Index}-->?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&action=join&id=<!--{$form.form.id}-->";'>报名参加</button>
+        <!--{elseif $form.form.config.HIDE_COUNT !== "Y"}-->
+            <button type='button' name='button' onclick='location.href="<!--{$Index}-->?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&action=result&id=<!--{$form.form.id}-->";'>查看结果</button>
+        <!--{/if}-->
+        </p>
+    </div>
+
+</form>
+<!--表单主体 内容块-->
+
+<!--表单验证 必需块-->
+<script type="text/javascript" src="<!--{$_CACHE.system.module.vote.index}-->js/app.js?ver=<!--{$_G.product.version}-->" charset="utf-8"></script>
+<!--表单验证 必需块-->

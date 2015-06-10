@@ -1,0 +1,13 @@
+<!--{include file="header.htm"}-->
+
+		<!--{if $_G.parameter.action eq "post"}-->
+			<!--{include file="post.htm"}-->
+		<!--{elseif $_G.parameter.action eq "result"}-->
+			<!--{include file="result.htm"}-->
+		<!--{elseif $_G.parameter.action eq "state"}-->			
+			<!--{include file="state.htm"}-->
+		<!--{else}-->
+			<!--{include file="view.htm"}-->
+		<!--{/if}-->
+            
+<!--{include file="footer.htm"}-->

@@ -1,0 +1,138 @@
+﻿/*
+[name]清爽绿色[/name]
+*/
+@charset "utf-8";
+
+html,body{font-size:12px;font-family:Verdana;overflow-x:hidden; padding:0; margin:0;}
+body{background:#fff url(pic/bg.gif) center top repeat-x fixed;}
+
+a{text-decoration:none; text-decoration:underline;}
+a:link,a:visited{color:#003399;}
+a:hover,a:active{color:#FF6600;}
+
+p{ padding:2px; margin:2px;}
+ul{list-style:none; padding:0px; margin:0px;}
+textarea{ color:#333333;}
+table,input,button,select{font-size:12px;}
+
+
+/*
+按钮样式
+*/
+.radio, .checkbox{ border:none; background:none; vertical-align:middle; }
+	
+/*
+主体内容
+*/
+#main{ margin:0 auto;}
+	
+	/*页面居左*/
+	#main.left {
+		margin:0;
+	}
+
+	/*
+	标题区
+	*/
+	#header{}
+		#header h1{color:#289714; margin:0; font-weight:normal; text-align:center;font-family:"微软雅黑"; }
+		#header p{line-height:20px; margin:.5em 0; padding:0; color:#666;}	
+		#header p.error{ color:red; font-weight:bold;}		
+
+	/*
+	内容区
+	*/
+	#content{ }
+	
+		#content fieldset{ margin:0 0 10px 0; padding:5px 15px; border:#999 solid 1px;}
+		  #content legend{ font-weight:bold;}
+
+		#content dl{background:#fff; margin:0 auto; width:100%; padding:0 0 10px 0; overflow:hidden; border:#DADDE4 solid 1px; border-top:#289714 solid 2px;}
+			#content dl dt{color:#2A507D; text-indent:1em; line-height:32px; font-size:14px; font-weight:bold; background:#ccc url(pic/gp.jpg) repeat-x;}
+			#content dl dd{ padding:0; margin:0;}
+			#content dl p{ padding:.2em .8em; margin:.5em; color:#999; background:#fff; border:#efefef solid 1px;}
+			
+		    #content dl ul{ width: 100%; overflow: hidden; }
+		    #content dl ul li{ text-align: center; overflow: hidden; margin: 10px 0; width: 25%; float: left;}
+				
+			#form table{color:#333; padding:0; overflow:hidden; width:100%; border:none;}
+				#form table td{ text-align:center; margin:10px 0; padding:5px; line-height:2em; background:#fff; overflow:hidden;}
+				#form table td:hover{background:#FFFFCC;cursor:pointer;}
+				
+				/*
+				图片
+				*/
+				#form table td img{border:none;}
+				
+				/*
+				描述
+				*/
+				#form table td span{ color:#999; }
+				
+				/*
+				票数
+				*/
+				#form table td strong{ color:#060; font-size:14px; }
+			
+		/*
+		拉票按钮
+		*/
+		#favor{ border:#999 solid 1px; background:#fff; padding:2px 5px; line-height:14px; position:absolute; opacity:0.4 ; filter:Alpha(opacity:40);}
+			#favor:hover{ opacity:0.9 ; filter:Alpha(opacity:90);}
+			
+		/*
+		提示信息
+		*/
+		#post{ border:#4C94EA solid 2px; padding:20px 20px 20px 60px; margin:20px 0; line-height:30px; font-size:16px; background:#fff url(pic/v.gif) 20px center no-repeat;}
+			#post.error{ border:red solid 2px; background-image:url(pic/x.gif);}
+		
+		/* 对话框 */	
+		#dialog{ width: 350px; border:#ccc solid 2px; margin:1em auto; zoom:1; border-radius: 5px; overflow: hidden;  background: #FFF; position: fixed; left: 0; right: 0; top: 30%; margin-left:auto; margin-right:auto; z-index: 99; display: none; }
+			#dialog h3{ margin: 0 0 10px 0; padding:10px 15px; border-bottom: #ccc solid 1px; background:#E8F8FF; }
+			#dialog p{ margin: 0 10px; }
+			#dialog strong{ display: inline-block; width: 60px; text-align: right; color: #369; }
+			#dialog img{ margin-bottom:5px; cursor:pointer; vertical-align:middle;}
+			#dialog input{ padding:5px; font-size: 14px; border:#ccc solid 1px; border-radius: 3px; vertical-align:middle;}
+			#dialog button{ padding: 8px; margin-bottom: 10px; }
+			
+		/*
+		提交按钮
+		*/		
+		#send{text-align:center; padding:10px;}
+			#send input{ margin:0 5px;}
+			#send button{background:#5A5A78 url(pic/btn.png);color:#FFF;font-weight:bold;padding:5px; cursor:pointer;border:1px solid #333;}
+			#send button:hover{color:#FFFF99;}
+			
+		/* 驱动 */
+		#powered{ line-height: 50px; text-align: center; color: #999;}
+
+		/*
+		结果报表
+		*/		
+		#result{background:#336699; width:100%; margin:10px 0;}
+			#result td{ line-height:22px;padding:3px 8px;}
+			
+			#result h1{font-size:16px; font-weight:bold; line-height:30px; color:#333; margin:0;}
+			#result p{font-size:12px;line-height:25px; color:#666; text-align:right;}
+			#result .info{text-align:center; line-height:30px;}
+			
+			#result .title{ background:#336699; text-align:left; color:#fff;}
+			#result .tag{ background:#fff; font-weight:bold;}
+			#result .line{ background:#fff;}
+			
+			#result .tag-id{ width:40px;}
+			#result .tag-option{}
+			#result .tag-scale{ width:150px; text-align:left;}
+			
+			#result .count{ float:right;}
+			#result .ratio{ line-height: 10px; display:block; float:left; background:#ccc url(pic/ratio.png) repeat-x; width:100%;}
+				#result .ratio span{ display:inline-block; height:10px;}
+				
+@media screen and (max-width: 650px) {
+	#main{ width: 96%!important;}
+	#content dl ul li{ width: 50%!important;}
+}
+				
+@media screen and (max-width: 500px) {
+	#content dl ul li{ width: 100%!important;}
+}

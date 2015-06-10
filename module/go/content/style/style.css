@@ -1,0 +1,86 @@
+@charset "gb2312";
+/* CSS Document */
+
+#lc_panel{ background:#fff url(pic/bg.gif?v=1) center center repeat-x; border-bottom:#ccc solid 1px; margin-bottom:5px; color:#666; overflow:hidden; font-family:'Microsoft Yahei'; }
+
+	/* 内容容器 */
+	#lc_panel_wrap{ width:960px; margin:8px auto; overflow:hidden;}
+
+
+	/* 扩展信息 */
+	#lc_panel_extra{ width:800px; float:left; }
+
+		#lc_panel_extra ul{ overflow:hidden; float:left; width:65px; margin-right:10px;}
+			#lc_panel_extra ul li{ width:65px; height:19px; line-height:19px; color:#fff; float:left; background:#999999; margin-bottom:6px; text-align:center; font-weight:bold; cursor:pointer; border-radius:5px;}
+			#lc_panel_extra ul li:last-child{ margin:0;}
+			#lc_panel_extra ul li.active{ background:#FF3300; }
+
+		#lc_panel_extra ol{ padding:0; margin:0; float:left; border:#eee dashed 2px; padding:4px; border-radius:8px; background:#fff;}
+			#lc_panel_extra ol.strict li{ margin-right:2px;}
+			
+			#lc_panel_extra ol li{ color:#666; float:left; width:17px; height:82px; text-align:center; display:block; padding:0 2px; margin-right:8px; position: relative; cursor:pointer; border-radius:8px; overflow:hidden;}
+			#lc_panel_extra ol li:last-child{ margin:0;}
+			
+			#lc_panel_extra ol li:hover{ background:#f8f8f8;}
+			#lc_panel_extra ol li:hover .cate{ color:#000; font-weight:bold;}
+			#lc_panel_extra ol li:hover .wend{ color:#F00; font-weight:bold;}
+			
+			#lc_panel_extra ol li .cate{ color:#999; display:block;}
+			#lc_panel_extra ol li .wend{ color:#F60;}
+			
+			#lc_panel_extra ol li .post{ height:15px; margin:auto; display:block; word-break:break-all; word-wrap: break-word; word-break: normal; position:absolute; z-index:2; border-radius:8px; text-align:right; width:50px;
+			-webkit-transform: rotate(90deg); -webkit-transform-origin:0 50%;
+			-moz-transform: rotate(90deg); -moz-transform-origin:0 50%;
+			-ms-transform: rotate(90deg); -ms-transform-origin:0 50%;
+			left:11px;
+			}
+			#lc_panel_extra ol li .lump{ margin:auto; height:60px; width:15px; background:#FFFF88; border:#CCCCCC solid 1px; display:block; position:absolute; z-index:1; border-radius:5px; bottom:0;}
+			
+			#lc_panel_extra ol li .min_post{ color:#fff;}
+			#lc_panel_extra ol li .min_lump{ background:#FF7400;}
+			
+			#lc_panel_extra ol li .max_post{ color:#fff;}
+			#lc_panel_extra ol li .max_lump{ background:#008C00;}
+	
+	/* 浮动数值 */
+	#lc_panel_number{ background:url(pic/sprite.png) -142px -150px no-repeat; width:60px; height:18px; padding-top:6px; line-height:18px; text-align:center; color:#fff; position:absolute;}
+
+	/* 链接信息 */
+	#lc_panel_link{ width:230px; height:50px; padding:5px 0 15px 0; line-height:17px; color:#666; position:absolute; z-index:999; margin-top:-70px; background:url(pic/sprite.png) 0 0 no-repeat; }
+		#lc_panel_link .index{ width:35px; line-height:50px; text-align:center; font-size:32px; color:#FF6600; display:inline-block; float:left; overflow:hidden; }
+		#lc_panel_link .detail{ width:180px; display:inline-block; float:left; margin-left:5px; }
+		
+		/* 进度 */
+		#lc_panel_link .plan{ width:100px; height:8px; overflow:hidden; vertical-align:middle; display:inline-block; background:#FFCCCC; border:#FF3300 solid 1px; }
+		#lc_panel_link .yellow{ background:#FFFF99; border:#FF9900 solid 1px; }
+		#lc_panel_link .blue{ background:#00CCFF; border:#0066CC solid 1px; }
+		
+		/* 数值 */
+		#lc_panel_link .stat{ float:right;}
+
+	/* 页面信息 */
+	#lc_panel_page{ width:110px; height:63px; padding:10px 5px 5px 30px; line-height:20px; color:#666; position:absolute; z-index:999; margin-top:20px; background:url(pic/sprite.png) 0 -70px no-repeat; }
+		#lc_panel_page span{ color:#FF6600;}
+	
+
+	/* 基本信息 */
+	#lc_panel_based{ width:140px; float:right; }
+	
+		#lc_panel_based .based_today{ line-height:22px; padding:5px; background:#EFEFEF; overflow:hidden; margin-bottom:8px; border-radius:8px;}
+		
+			#lc_panel_based .based_today *{ vertical-align:middle;}
+			
+			/* 升降状态 */
+			#lc_panel_based .based_today .status{ display:inline-block; margin:5px 0; width:14px; height:14px; float:right;}
+			#lc_panel_based .based_today .status span{ display:inline-block; width:100%; height:100%;}
+			#lc_panel_based .based_today .goup{ background:url(pic/sprite.png) -150px -129px no-repeat; }
+			#lc_panel_based .based_today .drop{ background:url(pic/sprite.png) -170px -129px no-repeat;}
+			
+			/* 昨日今日 */
+			#lc_panel_based .based_today .today{ color:#F79800; font-size:25px; font-family:Verdana;}
+			#lc_panel_based .based_today .yesterday{ color:#66C500; font-size:16px; font-family:Verdana;}
+			
+	
+		#lc_panel_based .based_channel{ padding:5px; line-height:18px; background:#EFEFEF; overflow:hidden; border-radius:8px;}
+	
+	

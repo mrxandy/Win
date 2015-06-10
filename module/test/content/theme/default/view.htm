@@ -1,0 +1,148 @@
+
+<!--{$_LOGIN}-->
+
+<!--表单验证 必需块-->
+<script type="text/javascript" src="<!--{$_CACHE.system.module.test.index}-->js/app.js?ver=<!--{$_G.product.version}-->" charset="utf-8"></script>
+<!--表单验证 必需块-->
+
+<!--表单主体 内容块-->
+<form id='form' name="form" data-appid="test" enctype='multipart/form-data' method='post' action='<!--{$Index}-->?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&action=post&id=<!--{$form.form.id}-->'>
+
+    <!--{foreach from=$form.group key=gid item=group}-->
+    
+    <!--{if $group.type eq "compart"}-->
+
+        <p> <strong><!--{$group.name}--></strong> <!--{$group.description}--></p>
+    
+    <!--{else}-->
+    
+        <dl id="group-<!--{$gid}-->" class="<!--{$group.type}-->">
+            <dt> <!--{if $group.config.GROUP_SCORE}--><span>本题 <!--{$group.config.GROUP_SCORE}--> 分</span><!--{/if}--> <strong><!--{$group.name}--></strong> <!--{if $group.config.GROUP_MUST}-->*<!--{/if}--></dt>
+            <dd>
+            
+                <!--{if $group.description}-->
+                    <p><!--{$group.description}--></p>
+                <!--{/if}-->
+        
+				<p>
+                <!--{if $group.type eq "select"}-->
+                <select id='G-<!--{$group.id}-->' name='G-<!--{$group.id}-->' data-valid-name='<!--{$group.name}-->' >
+                <!--{/if}-->
+                
+                <!--{counter start=1 assign="index" print=false}-->
+        
+                <!--{foreach from=$form.option[$gid] key=oid item=option}-->
+        
+                        <!--{if $group.type eq "radio"}-->
+                            <label><input type='radio' class='radio' name='G-<!--{$group.id}-->' value='<!--{$option.id}-->' data-valid-name='<!--{$group.name}-->' <!--{if $group.config.GROUP_MUST}-->data-valid-empty='yes'<!--{/if}--> /> <!--{$option.name}--></label>
+                        <!--{/if}-->
+        
+                        <!--{if $group.type eq "checkbox"}-->
+                            <label><input type='checkbox' class='checkbox' name='G-<!--{$group.id}-->[]' value='<!--{$option.id}-->' data-valid-name='<!--{$group.name}-->' <!--{if $group.config.GROUP_MUST}-->data-valid-empty='yes'<!--{/if}--> /> <!--{$option.name}--></label>
+                        <!--{/if}-->
+                        
+                        <!--{if $group.type eq "radio" or $group.type eq "checkbox"}-->
+                        
+                            <!--{if $group.config.GROUP_BREAK && $index%$group.config.GROUP_BREAK==0}--><br /><!--{/if}-->
+                                
+                            <!--{counter assign="index" print=false}-->
+                            
+                        <!--{/if}-->
+        
+                        <!--{if $group.type eq "select"}-->
+                            <option value='<!--{$option.id}-->' data-valid-name='<!--{$group.name}-->'> <!--{$option.name}--></option>
+                        <!--{/if}-->
+        
+                <!--{/foreach}-->
+        
+                <!--{if $group.type eq "select"}-->
+                </select>
+                <!--{/if}-->
+                </p>
+        
+            </dd>		
+        </dl>
+    
+    <!--{/if}-->
+
+    <!--{/foreach}-->
+    
+    <!--{if $form.form.config.USER_MODE == "ANY" && $form.form.config.ANY_USERNAME}-->
+	<dl class="text">
+	    <dt>用户名*</dt>
+	    <dd>
+	    <input type="text" size="20" name="extend[USERNAME]" class="text" value="<!--{$_G.member.username}-->" data-valid-name="您的用户名" data-valid-empty="yes" />
+	    </dd>
+	</dl>
+	<!--{/if}-->
+    
+    <!--{if $form.form.config.USER_MODE == "ANY" && $form.form.config.ANY_NAME}-->
+	<dl class="text">
+	    <dt>真实姓名*</dt>
+	    <dd>
+	    <input type="text" size="20" name="extend[NAME]" class="text" value="<!--{$_G.member.name}-->" data-valid-name="您的姓名" data-valid-empty="yes" />
+	    </dd>
+	</dl>
+	<!--{/if}-->
+    
+    <!--{if $form.form.config.USER_MODE == "ANY" && $form.form.config.ANY_QQ}-->
+	<dl class="text">
+	    <dt>QQ号码*</dt>
+	    <dd>
+	    <input type="text" size="20" name="extend[QQ]" class="text" value="<!--{$_G.member.qq}-->" data-valid-name="您的QQ" data-valid-number="yes" />
+	    </dd>
+	</dl>
+	<!--{/if}-->
+    
+    <!--{if $form.form.config.USER_MODE == "ANY" && $form.form.config.ANY_EMAIL}-->
+	<dl class="text">
+	    <dt>电子邮箱*</dt>
+	    <dd>
+	    <input type="text" size="20" name="extend[EMAIL]" class="text" value="<!--{$_G.member.email}-->" data-valid-name="您的邮箱" data-valid-email="yes" />
+	    </dd>
+	</dl>
+	<!--{/if}-->
+    
+    <!--{if $form.form.config.USER_MODE == "ANY" && $form.form.config.ANY_PHONE}-->
+	<dl class="text">
+	    <dt>手机号码*</dt>
+	    <dd>
+	    <input type="text" size="20" name="extend[PHONE]" class="text" value="<!--{$_G.member.phone}-->" data-valid-name="手机号码" data-valid-mobile="yes" />
+	    </dd>
+	</dl>
+	<!--{/if}-->
+    
+    <!--{if $form.form.config.USER_MODE == "ANY" && $form.form.config.ANY_IDCARD}-->
+	<dl class="text">
+	    <dt>身份证号*</dt>
+	    <dd>
+	    <input type="text" size="20" name="extend[IDCARD]" class="text" value="<!--{$_G.member.idcard}-->" data-valid-name="您的身份证" data-valid-idcard="yes" />
+	    </dd>
+	</dl>
+	<!--{/if}-->
+    
+    <!--{if $form.form.config.USER_MODE == "ANY" && $form.form.config.ANY_COMPANY}-->
+	<dl class="text">
+	    <dt>单位名称*</dt>
+	    <dd>
+	    <input type="text" size="20" name="extend[COMPANY]" class="text" value="<!--{$_G.member.company}-->" data-valid-name="您所在的单位名称" data-valid-empty="yes" />
+	    </dd>
+	</dl>
+	<!--{/if}-->
+
+    <div id='send'>    
+        <p>
+        <!--{if $form.form.start<time() && $form.form.expire>time() && $form.form.state>0}-->
+            <input type='submit' class='submit' value='提交表单' />
+        <!--{else}-->
+            <input type='submit' class='submit' value='<!--{if $form.form.expire<time()}-->表单过期<!--{else}-->暂未启用<!--{/if}-->' disabled='disabled' />
+        <!--{/if}-->
+        
+        <!--{if $form.form.config.HIDE_COUNT !== "Y"}-->
+            <input type='button' class='submit' name='button' onclick='location.href="<!--{$Index}-->?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&action=result&id=<!--{$form.form.id}-->";' value='查看结果' />
+        <!--{/if}-->
+        </p>
+    </div>
+
+</form>
+<!--表单主体 内容块-->

@@ -1,0 +1,63 @@
+<!--{if $form.form.config.HIDE_RESULT == "Y"}-->
+
+	<div id="post" class="error">
+		<p>
+			抱歉，当前统计结果暂不开放！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>
+	</div>
+
+<!--{else}-->
+		
+    <script type="text/javascript">var P = new Mo.Process();</script>
+    
+    <table id="result" border="0" cellpadding="3" cellspacing="1">
+		
+        <script type="text/javascript">var G = new P.Group();</script>
+        
+        <tr class="line">
+            <td>
+                <span class="count"><!--{$form.form.config.POSITIVE_RESULT}--> 票</span>
+                <span id="percent-<!--{$form.form.id}-->-A">0%</span>
+                <div class="ratio"><span id="option-<!--{$form.form.id}-->-A" style="background:<!--{color}-->;" /></div>
+            </td>
+            <td>
+                <span class="count"><!--{$form.form.config.NEGATIVE_RESULT}--> 票</span>
+                <span id="percent-<!--{$form.form.id}-->-B">0%</span>
+                <div class="ratio"><span id="option-<!--{$form.form.id}-->-B" style="background:<!--{color}-->;" /></div>
+            </td>
+        </tr>
+        
+        <script type="text/javascript">
+            G.Option("<!--{$form.form.id}-->-A",'<!--{$form.form.config.POSITIVE_RESULT}-->');
+            G.Option("<!--{$form.form.id}-->-B",'<!--{$form.form.config.NEGATIVE_RESULT}-->');
+        </script>
+        
+        <tr class="title">
+            <td><strong><!--{$form.form.config.POSITIVE}--></strong></td>
+            <td><strong><!--{$form.form.config.NEGATIVE}--></strong></td>
+        </tr>
+        
+        <tr class="line">
+            <td>
+                <dl id="POSITIVE_BOX"> </dl>
+                <div id="POSITIVE_PAGE" class="number">LOADING...</div>
+                <script type="text/javascript">getMessage('<!--{$form.form.id}-->',"POSITIVE","");</script>
+            </td>
+            <td>
+                <dl id="NEGATIVE_BOX"> </dl>
+                <div id="NEGATIVE_PAGE" class="number">LOADING...</div>
+                <script type="text/javascript">getMessage('<!--{$form.form.id}-->',"NEGATIVE","");</script>
+            </td>
+        </tr>
+		
+	</table>
+	
+	<div id='send'>
+		<p>
+		<input type='button' class='submit' name='button' onclick='location.href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->";' value='返回活动' />
+		</p>
+	</div>
+    
+    <script type="text/javascript">P.Show();</script>
+    
+<!--{/if}-->

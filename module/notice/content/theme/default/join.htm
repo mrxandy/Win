@@ -1,0 +1,156 @@
+
+<!--{$_LOGIN}-->
+
+<!--{if $submit}-->
+        
+        <!--{if $error eq "login"}-->
+                <div id="post" class="error">
+                    <p>
+                            提交失败，请先登录！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+                    </p>
+                </div>
+        <!--{/if}-->
+
+        <!--{if $error eq "verify"}-->
+                <div id="post" class="error">
+                    <p>
+                            提交失败，请不要重复提交！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+                    </p>
+                </div>
+        <!--{/if}-->
+
+        <!--{if $error eq "captcha"}-->
+                <div id="post" class="error">
+                    <p>
+                            提交失败，请正确输入验证码！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+                    </p>
+                </div>
+        <!--{/if}-->
+
+        <!--{if $error eq "toplimit"}-->
+                <div id="post" class="error">
+                    <p>
+                            提交失败，已超过人数上限！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+                    </p>
+                </div>
+        <!--{/if}-->
+
+        <!--{if $error eq "state"}-->
+                <div id="post" class="error">
+                    <p>
+                            提交失败，表单还未启用！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+                    </p>		
+                </div>	
+        <!--{/if}-->
+
+        <!--{if $error eq "expire"}-->
+                <div id="post" class="error">
+                    <p>
+                            提交失败，表单已经过期！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+                    </p>		
+                </div>
+        <!--{/if}-->
+
+        <!--{if $error eq "ip"}-->
+                <div id="post" class="error">
+                    <p>
+                            <!--{if $form.form.config.VERIFY_MODE=='DAY'}-->
+                    提交失败，您所在IP今天的投票次数已达上限（<!--{$form.form.config.FORM_SPEED}-->）！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+                <!--{else}-->
+                    提交失败，您所在IP的投票次数已达上限（<!--{$form.form.config.FORM_SPEED}-->）！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+                <!--{/if}-->
+                    </p>		
+                </div>	
+        <!--{/if}-->
+
+        <!--{if $error eq "null"}-->
+                <div id="post" class="error">
+                    <p>
+                            提交失败，没有收到数据！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+                    </p>		
+                </div>	
+        <!--{/if}-->
+
+        <!--{if $error eq ""}-->
+                <div id="post">
+                        <p>
+                        谢谢您的参与！
+                        <!--{if $form.form.config.HIDE_COUNT !== "Y"}-->
+                            <a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">查看活动</a>
+                        <!--{else}-->
+                            <a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+                        <!--{/if}-->
+                        </p>		
+                </div>            
+            
+            <!--{if $form.form.quote && $form.form.config.PAGE_REDIRECT }-->
+                <!--{if $form.form.config.PAGE_REDIRECT == "A"}-->
+                        <script type="text/javascript">window.setTimeout(function(){window.open("<!--{$form.form.quote}-->")},2000)</script>
+                <!--{else}-->
+                        <script type="text/javascript">window.setTimeout(function(){top.location.href="<!--{$form.form.quote}-->";},2000)</script>
+                <!--{/if}-->	
+            <!--{/if}-->
+            
+        <!--{/if}-->
+
+<!--{else}-->
+
+        <form id='form' name="form" data-appid="vote" method='post' action='?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&action=join&id=<!--{$form.form.id}-->'>
+            <!--{foreach from=$form.group key=gid item=group}-->
+        
+            <dl id="group-<!--{$gid}-->" class="<!--{$group.type}-->">
+                <dt> <!--{$group.name}--></dt>
+                <dd>
+                        
+                    <p>名称：<input type='text' class='text' name='name[<!--{$gid}-->]' value='' data-valid-name='名称' data-valid-empty='yes' /></p>
+                    
+                    <!--{if $group.config.GROUP_TEMPLATE|strpos:"IMAGE"}-->
+                        <p>照片：<input type='file' class='text' name='image[<!--{$gid}-->]' value='' data-valid-name='照片' data-valid-empty='yes' data-valid-accept='jpg,jpeg,gif,png,bmp'  /></p>
+                    <!--{/if}-->
+                    
+                    <!--{if $group.config.GROUP_TEMPLATE|strpos:"LINK"}-->
+                        <p>链接：<input type='text' class='text' name='quote[<!--{$gid}-->]' value='' data-valid-name='链接' data-valid-url="yes" /></p>
+                    <!--{/if}-->
+                    
+                    <!--{if $group.config.GROUP_TEMPLATE|strpos:"DESC"}-->
+                        <p>描述：<textarea type='text' class='text' name='description[<!--{$gid}-->]' data-valid-name='描述' data-valid-empty='yes' rows="5" /></textarea></p>
+                    <!--{/if}-->
+                    
+                </dd>		
+            </dl>
+
+            <!--{/foreach}-->
+
+            <div id='send'>
+                    
+                <p id="captcha">验证码：<input type="text" size="20" name="captcha" class="text" /><img src="<!--{$_G.system.base}-->api.php?action=captcha" onclick="this.src=this.src+'&rand='+Math.random();" /></p>
+            
+                <p>
+                    <!--{if $form.form.start<time() && $form.form.expire>time() && $form.form.state>0}-->
+                        <input type='submit' class='submit' value='立即报名' name='submit' />
+                    <!--{else}-->
+                        <input type='submit' class='submit' value='<!--{if $form.form.expire<time()}-->表单过期<!--{else}-->暂未启用<!--{/if}-->' disabled='disabled' />
+                    <!--{/if}-->
+                </p>
+            </div>
+
+        </form>
+
+        <script type="text/javascript">
+        Mo("#form").bind('submit',function( index, e ){
+
+	Mo.Event( e ).stop();
+	var form = this;
+			var result= Mo.ValidForm( this, function(i){
+				/*未加载 Effect 组件*/
+				if( Mo.Array(Mo.plugin).indexOf('ui') == -1 ){
+					alert(i);
+				}else{
+					Mo.Message( 'error', i, 3, { "unique" : "error", "center" : true } );
+				}
+			});
+			result && form.submit();
+        });
+        </script>
+
+<!--{/if}-->

@@ -1,0 +1,27 @@
+#
+# robots.txt for VeryIDE
+# Version 1.8
+#
+
+User-agent: *
+
+Disallow: /attach/
+Disallow: /cache/
+Disallow: /class/
+Disallow: /config/
+Disallow: /dialog/
+Disallow: /data/
+Disallow: /editor/
+Disallow: /function/
+Disallow: /image/
+Disallow: /include/
+Disallow: /js/
+Disallow: /source/
+Disallow: /style/
+Disallow: /static/
+Disallow: /theme/
+Disallow: /smarty/
+Disallow: /readme/
+Disallow: api.php
+Disallow: app.php
+Disallow: serv.php

@@ -1,0 +1,53 @@
+
+<!--{$_LOGIN}-->
+
+<form id='form'>
+
+    <dl>
+        <dt><!--{$option.name}--> &gt; 详细介绍</dt>
+        <dd>
+        
+            <!--{if $group.description}-->
+                <p><!--{$group.description}--></p>
+            <!--{/if}-->
+            
+            <!--{if $option.state<=0 || !$oid}-->
+            
+            <div id="post" class="error">
+                <p>
+                        查看失败，当前记录不存在或已禁用！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+                </p>
+			</div>
+        
+                <!--{else}-->
+                
+                    <div id="detail">
+                    
+                        <!--{if $option.image}--><img src="<!--{$option.image}-->" /><!--{/if}-->
+                        
+                        <p>
+
+                        <!--处理模板显示内容-->
+                        <!--{$option.description}-->
+                        
+                        </p>
+
+                    </div>
+        
+            <!--{/if}-->
+
+        </dd>		
+    </dl>
+
+</form>
+
+<div id='send'>
+    <p>
+    <input type='button' class='submit' name='button' onclick='location.href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->";' value='返回活动' />
+    <input type='button' class='submit' name='button' onclick='window.close();' value='关闭窗口' />
+    </p>
+</div>
+
+<!--{if $form.form.config.FORM_BUTTON_PULL}-->
+<script type="text/javascript" src="<!--{$_CACHE.system.module.vote.index}-->js/app.js?ver=<!--{$_G.product.version}-->" charset="utf-8"></script>
+<!--{/if}-->

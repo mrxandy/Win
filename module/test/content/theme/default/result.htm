@@ -1,0 +1,65 @@
+<!--{if $form.form.config.HIDE_RESULT == "Y"}-->
+
+	<div id="post" class="error">
+		<p>
+			抱歉，当前统计结果暂不开放！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>
+	</div>
+
+<!--{else}-->
+		
+    <script type="text/javascript">var P = new Mo.Process();</script>
+    
+	<table id="result" border="0" cellpadding="3" cellspacing="1">
+		
+		<!--{foreach from=$form.group key=gid item=group}-->
+		
+		<tr class="<!--{if $group.type != "compart"}-->title<!--{else}-->compart<!--{/if}-->">
+			<td class="tag-id"></td>
+			<td class="tag-option"><strong><!--{$group.name}--></strong></td>
+			<td class="tag-scale"><!--{$_G.module.test.group[$group.type]}--></td>
+		</tr>
+					
+            <!--{if $group.type != "compart"}-->
+            
+            <script type="text/javascript">var G = new P.Group('<!--{$group.id}-->');</script>
+            
+            <tr class="line">
+                <td><!--{$group.id}--></td>
+                <td>正确</td>
+                <td>
+                    <span class="count"><!--{$group.stat}--> 票</span>
+                    <span id="percent-<!--{$group.id}-->-A">0%</span>
+                    <div class="ratio"><span id="option-<!--{$group.id}-->-A" style="background:<!--{color}-->;" /></div>
+                </td>
+            </tr>
+            <tr class="line">
+                <td><!--{$group.id}--></td>
+                <td>错误</td>
+                <td>
+                    <span class="count"><!--{$form.form.stat-$group.stat}--> 票</span>
+                    <span id="percent-<!--{$group.id}-->-B">0%</span>
+                    <div class="ratio"><span id="option-<!--{$group.id}-->-B" style="background:<!--{color}-->;" /></div>
+                </td>
+            </tr>            
+            
+            <script type="text/javascript">
+				G.Option('<!--{$group.id}-->-A','<!--{$group.stat}-->');
+				G.Option('<!--{$group.id}-->-B','<!--{$form.form.stat-$group.stat}-->');
+			</script>            
+            
+            <!--{/if}-->
+
+		<!--{/foreach}-->
+		
+	</table>
+	
+	<div id='send'>
+		<p>
+		<input type='button' class='submit' name='button' onclick='location.href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->";' value='返回活动' />
+		</p>
+	</div>
+    
+    <script type="text/javascript">P.Show();</script>
+    
+<!--{/if}-->

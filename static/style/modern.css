@@ -1,0 +1,291 @@
+@charset "utf-8";
+/* 全局样式 */
+
+html,body{ font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3", 'helvetica neue', 'stheiti', 'microsoft yahei', '\5FAE\8F6F\96C5\9ED1',tahoma,sans-serif; font-size:12px; color:#555; height:100%; overflow:hidden;}
+
+html,body,ul,ol,li,form,dl,dt,dd{ padding:0; margin:0; list-style:none;}
+
+a {text-decoration:none;cursor:pointer; outline: none; }
+a:link,a:visited{ color:#333;}
+a:hover{ color:#369;}
+a img{ border:none;}
+
+img {border:none; vertical-align:middle;}
+
+/* 表单元素 */
+input, button, select, textarea{ vertical-align:middle; }
+textarea, input{ padding:3px; border:1px solid #ccc; border-color:#666 #ccc #ccc #666; background:#F9F9F9; color:#333;}
+textarea{ font-family:Verdana;width:500px;border:1px solid #718da6; line-height:18px;}
+select{ font:normal 13px Verdana; padding:1px; border:1px solid #ccc; border-color:#666 #ccc #ccc #666; background:#F9F9F9; color:#333; }
+input.text:hover, input.text:focus, input.datetime:hover, input.datetime:focus, textarea:hover, textarea:focus{ border-color:#09C; background-color:#fff; }
+
+/* 消息标记 */
+em.badge{
+		position:absolute;
+		top:0;
+		right:0;
+		font-family:Arial,sans-serif;
+		font-size:10px;
+		font-style: normal;
+		color:#fff;
+		background-color:red;
+		border:2px solid white;
+		line-height:10px;
+		padding: 3px 5px;
+		text-align:center;
+		border-radius:10px;
+		
+		background:-moz-linear-gradient(top, rgba(255,150,150,1) 0%, rgba(200,0,0,1) 100%); /* FF3.6+ */
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,150,150,1)), color-stop(100%,rgba(200,0,0,1))); /* Chrome,Safari4+ */
+		background:-webkit-linear-gradient(top, rgba(255,150,150,1) 0%,rgba(200,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+		background:-o-linear-gradient(top, rgba(255,150,150,1) 0%,rgba(200,0,0,1) 100%); /* Opera 11.10+ */
+		background:-ms-linear-gradient(top, rgba(255,150,150,1) 0%,rgba(200,0,0,1) 100%); /* IE10+ */
+		background:linear12-gradient(top, rgba(255,150,150,1) 0%,rgba(200,0,0,1) 100%); /* W3C */
+        
+        box-shadow:0 1px 2px rgba(0,0,0,0.8);
+        text-shadow: none;
+	}
+
+/*
+	欢迎屏幕
+*/
+#greet{ width:100%; height:100%; background:#B4D9F1 url(pic/greet.gif) center center no-repeat; position:absolute; left:0; top:0; z-index:10000000; }
+
+/*
+	顶层容器
+*/
+#wrapper{ transition: background 1s ease-in-out; }
+
+	#header{ background:url(pic/naver.png) repeat-x!important; background:#999; height:80px; border-radius:0 0 10px 10px; overflow:hidden;}
+	
+		/*
+			网站图标
+		*/
+		#logo{ float:left; height:100%; overflow:hidden;}
+			#logo img{ width:300px; height:80px; vertical-align:middle;}
+	
+		/*
+			快捷方式
+		*/
+		#quick{ margin:5px 10px; width:600px; overflow:hidden; float:left; line-height:15px; }
+			#quick li{ text-align:center; float:left; width:60px; margin:0; position: relative;height: 70px;line-height: 35px;}
+			#quick li img{ width:32px; height:33px; margin-bottom:2px;}
+			#quick li a{ text-decoration:none; color:#fff; text-shadow: 0 0 3px #333; display:block; width:100%; height:100%; padding:5px 0; border-radius:5px; }
+			#quick li a:hover{ text-decoration:none; background:#7A7A7A; }
+			#quick li.active a{ background:#7A7A7A; }
+			
+		/*
+			个人收藏
+		*/
+		#addon{ margin:15px 0; width:38px; height:50px; background:url(pic/sprite.png) -450px -3px no-repeat; float:left; position:relative; text-align:center; font-family:Verdana; font-size:10px; line-height:65px; overflow:hidden; }
+			#addon.active{ background:url(pic/sprite.png) -450px -53px no-repeat; cursor:pointer; }
+			#addon.active:hover{ background:url(pic/sprite.png) -450px -200px no-repeat;  line-height:60px;}
+			
+		/*
+			更多收藏
+		*/
+		#collect{ width:540px; z-index:100000; padding:10px 10px 0 10px; position:absolute; background:#999; background:rgba(153,153,153, 0.8)!important; line-height:15px; overflow:hidden; border-radius:5px;  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 8px rgba(82, 168, 236, 0.6); }
+			#collect p{ line-height:3em; text-align:center; font-size:1.2em; color:#EEE;}
+			#collect ul li{ text-align:center; float:left; width:60px; margin-bottom:8px; position: relative;}
+			#collect ul li img{  width:32px; height:33px; margin-bottom:2px; }	
+			#collect ul li a{ display:block; width:100%; height:100%; color:#fff; text-decoration:none; text-shadow: 0 0 3px #333; padding:5px 0; border-radius:5px; }
+			#collect ul li a:hover{ text-decoration:none; background:#7A7A7A; }
+			
+		/* 动态消息 */
+		#quick .badge, #addon .badge, #collect .badge{ font-size:8px; border-radius: 8px; right: 5px; padding: 2px 4px; border-width: 1px; }
+	
+		/*
+			用户头像
+		*/
+		#avatar{ padding:9px 10px; width:170px; line-height:25px; float:right; overflow:hidden; background:#666; color:#fff;height: 62px;}
+			#avatar a{ color:#fff;}
+			#avatar img{ float:left; margin-right:10px; width:50px; height:50px; border:#ccc solid 1px;}
+			
+			#avatar em{ background: #ff000e; background: -webkit-linear-gradient(rgba(255,88,88,1) 0%, #d50909 100%); color: #fff; border-radius:10px; padding:2px 5px 1px 5px; min-width: 12px;
+font-size: 8px; font-family: Arial,sans-serif; margin: auto 2px; font-style: normal; }
+				
+			
+		/*
+			新年图标
+		*/
+		#newyear{ z-index:100; width:58px; position:absolute; top:2px; right: 142px; }
+			#newyear img{ border:none; }
+			#newyear.spring{ top:0; right:130px; }
+		
+		/*
+			积雪
+		*/
+		#snow{background:url(pic/snow.gif) repeat-x; height:15px; width:100%; position:absolute; top:55px; left:0; overflow:hidden;}
+	
+		/*
+			浮动菜单
+		*/
+		#menu{ position:absolute; padding:5px; overflow:auto; width:400px; height:350px; z-index:9999; margin-top:55px; border:#666666 solid 1px; background:#666666;}
+		
+			#menu div{ background:#666666; padding:5px; color:#efefef; clear:both; font-weight:bold;}
+				#menu div img{ margin-right:5px; width:16px; height:16px; vertical-align:middle;}
+				
+			#menu ul{ padding:5px; line-height:25px; clear:both; overflow:hidden; background:#333;}
+				#menu ul li{ float:left; width:20%; text-align:center;}
+				#menu ul li a{ color:#ccc;}
+				#menu ul li a:hover{ color:#fff;}
+	
+		/*
+			链接推荐
+		*/
+		#link{ position:absolute; background:url(pic/passport.png); overflow:hidden; width:210px; height:120px; padding:46px 20px 10px 20px; z-index:9999;right:100px; bottom:30px;}
+			#link ul{ padding:0 5px;  clear:both; overflow:hidden;}
+				#link ul li{ line-height: 30px; }
+				#link ul li a{ color:#000; }
+				#link ul li a:hover{ color:#0691FD;}
+			
+			
+			
+	/*
+		桌面
+	*/
+	#container{ background:#fff; padding:0 10px; overflow:hidden;}
+	
+		/*
+			应用列表
+		*/
+		#module{ width:450px; margin:15px 5px;}
+		
+			#module dl{}
+			#module dl dt{ font-size:14px; line-height:25px; font-weight:bold; color:#36C; clear:both; border-bottom:#fff solid 2px; }
+				#module dl dt strong{ display:inline-block; width:80px; text-align:center; }
+				
+				#module dl dt ol{ display:block; float:right; text-align:center; }
+					#module dl dt ol li{ width:6px; height:6px; float:left; display:inline-block; margin:2px 3px; background: url(pic/sprite.png) no-repeat -295px -75px; cursor: pointer; padding:5px; overflow:hidden; }
+					#module dl dt ol li.active { background: url(pic/sprite.png) no-repeat -275px -75px; }
+				
+			#module dl dd{ padding:15px 0;  line-height:16px; margin:0;  clear:both;}
+			
+			/*
+				消息栏
+			*/
+			#module dl dd div{ text-align:center; line-height:30px; width:150px; margin:20px auto; background:url(pic/sprite.png) no-repeat -290px -200px;}
+
+			/*
+				公告
+			*/
+			#module dl dd ol{ overflow:hidden;}
+				#module dl dd ol li{ line-height:25px; background:url(pic/sprite.png) no-repeat -60px -270px; margin:0 10px 10px 10px; padding:0 10px;}
+				#module dl dd ol li a{ color:#1E5494;; }
+				#module dl dd ol li span{ color:#999;}
+			/*
+				应用
+			*/
+			#module dl dd ul{ overflow:hidden;}
+				#module dl dd ul li{ text-align:center; line-height:20px; float:left; width:60px; height:100px; margin:0 10px 0 10px; padding: 5px; position: relative;}
+				#module dl dd ul li img{  margin-bottom:4px; }	
+				#module dl dd ul li a{ display:block; margin:0; color:#666; }
+				#module dl dd ul li span{ display:block; padding:2px 1px 0 1px; }
+
+
+	/*
+		底部
+	*/
+	#footbg{ height:30px; z-index:1; width:100%; background-color:#fff; filter:alpha(opacity=50); opacity:0.5; position:absolute; border-radius:10px 10px 0 0; }
+	
+	#footer{ height:30px; z-index:2; position:absolute; overflow:hidden; text-align:center; width:100%;  }
+		/*
+			驱动商
+		*/
+		#powered{ color:#999; border:red solid 1px; text-align:center; display:none;}
+	
+		/*
+			任务条
+		*/
+		#task{ overflow:hidden; float:left; line-height:15px; margin:2px 5px;}
+			#task li{ text-align:center; float:left; margin:3px 5px;}
+			#task li img{ width:20px;}
+			#task li a{ text-decoration:none;}
+			#task li a:hover{ text-decoration:none;}
+	
+		/*
+			控制器
+		*/
+		#place{ overflow:hidden; float:right; line-height:15px; margin:2px 5px;}
+			#place li{ text-align:center; float:left;}
+			#place li img{ width:16px;}
+			#place li a{ text-decoration:none; display:block; width:18px; height:26px; margin:4px 9px; overflow:hidden; background:url(pic/portal.png) center center no-repeat;}
+			#place li a:hover{ text-decoration:none; width:36px; margin:0; }
+			
+			/* 加载状态 */
+			#place li#loading{ margin:5px; }
+
+			/*
+				显示桌面
+			*/
+			#place li#bind_help a{ background-position:-40px -20px;}
+			#place li#bind_help a:hover{ background-position:-80px -320px;}
+
+			/*
+				显示桌面
+			*/
+			#place li#bind_home a{ background-position:-200px -20px;}
+			#place li#bind_home a:hover{ background-position:-240px -280px;}
+
+			/*
+				显示桌面
+			*/
+			#place li#bind_desktop a{ background-position:-120px -20px;}
+			#place li#bind_desktop a:hover{ background-position:-240px -320px;}
+
+			/*
+				主题设置
+			*/
+			#place li#bind_theme a{ background-position:-20px -20px; }
+			#place li#bind_theme a:hover{ background-position:-40px -320px; }
+
+			/*
+				刷新页面
+			*/
+			#place li#bind_refresh a{ background-position:-220px -20px; }
+			#place li#bind_refresh a:hover{ background-position:-280px -280px; }
+
+			/*
+				个性设置
+			*/
+			#place li#bind_custom a{ background-position:-240px -20px; }
+			#place li#bind_custom a:hover{ background-position:-320px -280px; }
+			
+			/*
+				退出登录
+			*/
+			#place li#bind_logout a{ background-position:-260px -20px; }
+			#place li#bind_logout a:hover{ background-position:-360px -280px; }
+	
+/* iPad 竖屏修正 */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+	#logo{ display: none;}
+}
+
+
+#sign{
+  margin: 5px 10px;
+  width: 200px;
+  overflow: hidden;
+  float: left;
+  line-height: 15px;
+  height: 60px;
+}
+
+#sign span{
+	display:block;
+	padding:6px 3px;
+	
+}
+
+#sign span a{
+	  box-shadow: inset 0 1px 0 #D8EAF6,inset -1px 0 0 #B4D7ED,inset 0 -1px 0 #81BCE1,inset 1px 0 0 #B4D7ED;
+  background: #52A8EC;
+  background: -webkit-gradient(linear, left top, left bottom, from(#AEDCFC), color-stop(0.49, #6EB9EE), color-stop(0.5, #2187D9), color-stop(1, #67B5EC));
+  border: 1px solid #268ADA;
+  font-size: 14px;
+	padding: 2px 15px;
+	color:#fff;
+	border-radius:5px;
+}
+	

@@ -1,0 +1,138 @@
+﻿/*
+[name]默认[/name]
+*/
+@charset "utf-8";
+
+html,body{font-size:12px; padding:0; margin:0; background:#fff url(pic/bg.jpg) center top repeat-x;}
+
+a{text-decoration:none; text-decoration:underline;}
+a:link,a:visited{color:#003399;}
+a:hover,a:active{color:#FF6600;}
+
+p{ padding:.5em; margin:.5em 0;}
+ul{list-style:none; padding:0px; margin:0px;}
+table,input,button,select{font-size:12px;}
+
+textarea, input{ padding:3px; border:1px solid #ccc; border-color:#666 #ccc #ccc #666; background:#F9F9F9; color:#333; }
+select{ padding:1px; border:1px solid #ccc; border-color:#666 #ccc #ccc #666; background:#F9F9F9; color:#333; }
+
+/*
+按钮样式
+*/
+.radio, .checkbox{ border:none; background:none; vertical-align:middle; }
+	
+/*
+主体内容
+*/
+#main{ width:620px;margin:10px auto; padding:20px;}
+
+	/*
+	标题区
+	*/
+	#header{}
+		#header h1{color:#333; margin:0; font-weight:normal; text-align:center;}
+		#header p{line-height:20px; margin:.5em 0; padding:0; color:#666;}	
+		#header p.error{ color:#336699; font-weight:bold;}
+		#header p.description{ background:#EBF5FF; color:#666; padding:5px; line-height:20px;}
+		
+
+	/*
+	内容区
+	*/
+	#content{}
+	
+		#content fieldset{ margin:0 0 10px 0; padding:5px 15px; border:#999 solid 1px;}
+		  #content legend{ font-weight:bold;}
+	
+		#content fieldset dl{background:#E8F8FF; border:#aaa solid 1px;margin:1em auto; zoom:1;}
+			#content fieldset dl:hover{border:#ffcc00 solid 1px;background:#FFFFCC;}
+			#content fieldset dl dt{color:#000033;background:#fff;line-height:20px;padding:.5em;border-bottom:#aaa solid 1px;}
+			#content fieldset dl dd{color:#333;padding:.5em;margin:.5em;}
+	
+			#content fieldset dl.error{background:#FFFF99; border:#FF9900 solid 1px;}
+				#content fieldset dl.error dt{color:#FF0000;font-weight:bold;border-bottom:#FF9900 solid 1px;}
+				#content fieldset dl.error dd{color:#333;}
+		
+			#content fieldset dl.complete{background:#F0FDE4; border:#66CC00 solid 1px;}
+				#content fieldset dl.complete dt{color:#006600;border-bottom:#66CC00 solid 1px;}
+				#content fieldset dl.complete dd{color:#333;}
+		
+			#form textarea{ margin:0;padding:5px; width:540px; height:80px;}
+		
+		
+		/*正反方*/
+		#form ul{background:url(pic/pk.gif) center center no-repeat;margin:10px 0; width:100%; overflow:hidden; clear:both;}
+			#form ul li{color:#000033;background:#fff;line-height:20px;padding:1em;border:#ccc solid 1px; float:left; width:35%; text-align:center; cursor:pointer;}
+				#form ul li.negative{ float:right;}
+				
+			#form ul li:hover{border:#ffcc00 solid 1px;background:#FFFFCC;}
+			#form ul li.active{border:#00659B solid 1px;background:#CEE1EB;}
+			
+			#form ul b{ color:#fff; margin:.5em; line-height:60px; clear:both; display:block; font-size:12px; text-align:center; }
+			#form ul input{ margin:0 auto; display_:none;}
+			
+			/*正方*/
+			#posi-vote{ background:url(pic/voting01.gif) center center no-repeat;}
+			
+			/*反方*/
+			#nega-vote{ background:url(pic/voting02.gif) center center no-repeat;}
+
+		/*消息框*/
+		#message{color:#FF0033; background:#F9FCFE; border:#ccc solid 1px; padding:5px 10px; line-height:20px; clear:both; margin:.5em 0;}
+			#message p{ margin:5px 0; }
+				#message p img{ margin-right:5px; }
+			#message textarea{ padding:5px; width:98%; height:80px;vertical-align:middle;}
+			#message input{ vertical-align:middle;}
+	
+		/*表情框*/
+		#smiles{ float:left; width:480px;}
+			
+		/*
+		错误消息
+		*/
+		#error{ position:absolute; z-index:999; background:#5A5A78; color:#fff; padding:10px; font-size:12px; font-weight:bold;}
+			
+		/*
+		提示信息
+		*/
+		#post{ border:#4C94EA solid 2px; padding:20px 20px 20px 60px; margin:20px 0; line-height:30px; font-size:16px; background:#fff url(pic/v.gif) 20px center no-repeat;}
+			#post.error{ border:red solid 2px; background-image:url(pic/x.gif);}
+			
+		/*
+		提交按钮
+		*/		
+		#send{text-align:center; padding:10px;}
+			#send p{ margin:10px 0;}
+			#send input{ margin:0 5px;}
+			#send .submit{background:#5DB9EC url(pic/btn.gif);color:#FFF;font-weight:bold; width:100px; height:28px; line-height:20px; cursor:pointer; border:none;}
+			#send .submit:hover{color:#CDE4F2;}
+			
+		/* 驱动 */
+		#powered{ line-height: 50px; text-align: center; color: #999;}
+		
+		/*
+		结果报表
+		*/	
+		#result{background:#CCCCCC; width:100%; margin:10px 0;}
+			#result td{ line-height:22px;padding:5px 10px;}
+			
+			#result .title{ background:#E8F8FF; text-align:center; color:#003366;}
+			#result .line{ background:#fff;}
+			
+			#result .count{ float:right;}
+			#result .ratio{height:15px; display:block; float:left; background:#ccc url(pic/ratio.png) repeat; width:100%;}
+				#result .ratio span{ display:inline-block; height:15px;}
+			
+			#result dl{background:#F9FCFE; margin:1em 0; text-align:left; overflow:auto; height:500px;}
+				#result dl dt{color:#999;background:#fff;line-height:20px;padding:.5em;border-bottom:#ccc dashed 1px; text-align:right;}
+				#result dl dt strong{ float:left;color:#000033;}
+				#result dl dd{color:#333;padding:.5em;margin:.5em; line-height:150%;}
+				#result dl dd:hover{background:#efefef;}
+				
+				
+			/* page number */
+			#result .number{padding:5px;margin:0 auto;color:#666;height:20px; overflow:hidden; text-align:center;}
+				#result .number strong{font-weight:normal;padding: 2px 6px;color:#666;margin:0 2px;}
+				#result .number span{ margin-left:5px; color:#ccc;}
+				#result .number a {border:#ddd 1px solid;padding: 2px 6px;background: #FFF;color: #333;margin:0 2px;text-decoration:none; font-family:"宋体";}
+				#result .number a:hover {border-color:#003399;color:#003399;}

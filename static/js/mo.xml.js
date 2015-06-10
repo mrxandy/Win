@@ -1,0 +1,10 @@
+/*
+*	(C)2009-2013 VeryIDE
+*	Mo.js
+*	author:
+*			Wiki[MO]	gwikimo@gmail.com	
+*			Lay 		veryide@qq.com
+*
+*	#XML 解析和转换工具，支持 xml 和 json 互转
+*/
+if(typeof Mo!="function"){var Mo={plugin:[]}}Mo.XML={parseXML:function(b){if(window.ActiveXObject){var a=new ActiveXObject("Microsoft.XMLDOM");a.async="false";a.loadXML(b)}else{var c=new DOMParser();var a=c.parseFromString(b,"text/xml")}return a},getJSON:function(g,a){var a=(typeof a=="undefined"?true:a);var e={};if(g.nodeType==1){if(g.attributes.length>0){e["@attributes"]={};for(var d=0;d<g.attributes.length;d++){var b=g.attributes.item(d);e["@attributes"][b.nodeName]=b.nodeValue}}}else{if(g.nodeType==4){e=g.nodeValue}else{if(g.nodeType==3){e=a?g.nodeValue.replace(/^\s+|\s+$/g,""):g.nodeValue}}}if(g.hasChildNodes()){for(var f=0;f<g.childNodes.length;f++){var k=g.childNodes.item(f);var h=k.nodeName;if(a&&(k.nodeType==8||k.nodeType==3&&!/[^\s]/.test(k.nodeValue))){g.removeChild(k);f--;continue}if(typeof(e[h])=="undefined"){e[h]=Mo.XML.getJSON(k,a)}else{if(typeof(e[h].length)=="undefined"){var c=e[h];e[h]=[];e[h].push(c)}if(typeof(e[h])==="object"){e[h].push(Mo.XML.getJSON(k,a))}}}}return e},getXML:function(d,c){var e=function(g,j,o){var h="";if(g instanceof Array){for(var k=0,p=g.length;k<p;k++){h+=o+e(g[k],j,o+(c?"\t":""))+(c?"\n":"")}}else{if(typeof(g)=="object"){var l=false;h+=o+"<"+j;for(var f in g["@attributes"]){h+=" "+f+'="'+g["@attributes"][f].toString()+'"'}for(var f in g){if(f!="@attributes"){l=true;break}}h+=l?">":"/>";if(l){for(var f in g){if(f=="#text"){h+=g[f]}else{if(f=="#cdata-section"){h+="<![CDATA["+g[f]+"]]>"}else{if(f!="@attributes"){h+=e(g[f],f,o+(c?"\t":""))}}}}h+=(h.charAt(h.length-1)=="\n"?o:"")+"</"+j+">"}}else{h+=o+"<"+j+">"+g.toString()+"</"+j+">"}}return h},b="";for(var a in d){b+=e(d[a],a,"")}return b}};Mo.plugin.push("xml");

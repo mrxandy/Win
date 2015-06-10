@@ -1,0 +1,1 @@
+Mo.reader(function(){Mo("#toggle").bind("click",function(){var a="";if(Mo("#wrapper").attr("className")!="auto"){a="auto"}Mo("#wrapper").attr({className:a});Mo.Cookie.set(Mo.store.prefix+"toggle",a)}).attr({title:"宽窄屏切换"})});

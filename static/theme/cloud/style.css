@@ -1,0 +1,30 @@
+	
+	/*
+	[name]Cloud[/name]
+	*/
+	
+
+	#wrapper{  background:url(pic/background.jpg) left center; background-size: cover; }
+	
+	#header{ background:url(pic/naver.png) repeat-x!important;}
+	
+	#avatar{ background:none; color:#478AF4; }
+		#avatar a {color: #666;}
+	
+	/*
+		桌面
+	*/
+	#container{ background:none; }
+		
+		#module dl dt{ color:#36C;  background:url(pic/c.png) left center no-repeat; border-bottom:#ccc solid 2px;}
+			#module dl dt strong{ width:80px;  color:#333; }
+		
+		/*
+			背景
+		*/
+		#module dl dd ul li a{ color:#fff; }		
+		#module dl dd ul li span{ background:url(pic/a.png) center center no-repeat; color:#333; }		
+
+		#footer{ /*background-color:#fff; filter:alpha(opacity=50); opacity:0.5;*/ }
+
+			#footer *{ position:relative;}

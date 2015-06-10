@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+	<item label="基本设置"/>
+
+	<key name="site" type="text" label="站点名称：" size="35" data-valid-empty="yes" />
+	
+	<key name="domain" type="text" label="站点域名：" comment=" 主域名，例如：abc.com，不包含 www." size="35" />
+
+	<key name="url" type="text" label="站点地址：" comment=" 网站的访问地址，包含 http:// 信息" size="35" data-valid-empty="yes"/>
+	
+	<key name="logo" type="text" label="图片标识：" comment=" 网站的LOGO地址，包含 http:// 信息" size="35" data-valid-empty="yes"/>
+
+	<item label="系统扩展"/>
+	
+	<key name="timezone" type="select" label="默认时区：">
+		<option value="-12">(标准时-12:00) 日界线西</option>
+		<option value="-11">(标准时-11:00) 中途岛、萨摩亚群岛</option>
+		<option value="-10">(标准时-10:00) 夏威夷</option>
+		<option value="-9">(标准时-9:00) 阿拉斯加</option>
+		<option value="-8">(标准时-8:00) 太平洋时间(美国和加拿大)</option>
+		<option value="-7">(标准时-7:00) 山地时间(美国和加拿大)</option>
+		<option value="-6">(标准时-6:00) 中部时间(美国和加拿大)、墨西哥城</option>
+		<option value="-5">(标准时-5:00) 东部时间(美国和加拿大)、波哥大</option>
+		<option value="-4">(标准时-4:00) 大西洋时间(加拿大)、加拉加斯</option>
+		<option value="-3.5">(标准时-3:30) 纽芬兰</option>
+		<option value="-3">(标准时-3:00) 巴西、布宜诺斯艾利斯、乔治敦</option>
+		<option value="-2">(标准时-2:00) 中大西洋</option>
+		<option value="-1">(标准时-1:00) 亚速尔群岛、佛得角群岛</option>
+		<option value="111">(格林尼治标准时) 西欧时间、伦敦、卡萨布兰卡</option>
+		<option value="1">(标准时+1:00) 中欧时间、安哥拉、利比亚</option>
+		<option value="2">(标准时+2:00) 东欧时间、开罗，雅典</option>
+		<option value="3">(标准时+3:00) 巴格达、科威特、莫斯科</option>
+		<option value="3.5">(标准时+3:30) 德黑兰</option>
+		<option value="4">(标准时+4:00) 阿布扎比、马斯喀特、巴库</option>
+		<option value="4.5">(标准时+4:30) 喀布尔</option>
+		<option value="5">(标准时+5:00) 叶卡捷琳堡、伊斯兰堡、卡拉奇</option>
+		<option value="5.5">(标准时+5:30) 孟买、加尔各答、新德里</option>
+		<option value="6">(标准时+6:00) 阿拉木图、 达卡、新亚伯利亚</option>
+		<option value="7">(标准时+7:00) 曼谷、河内、雅加达</option>
+		<option value="8">(北京时间) 北京、重庆、香港、新加坡</option>
+		<option value="9">(标准时+9:00) 东京、汉城、大阪、雅库茨克</option>
+		<option value="9.5">(标准时+9:30) 阿德莱德、达尔文</option>
+		<option value="10">(标准时+10:00) 悉尼、关岛</option>
+		<option value="11">(标准时+11:00) 马加丹、索罗门群岛</option>
+		<option value="12">(标准时+12:00) 奥克兰、惠灵顿、堪察加半岛</option>
+	</key>
+	
+	<key name="connect" type="radio" label="安全通信：">
+		<option value="on">开启通信</option>
+		<option value="off">关闭通信</option>
+	</key>
+	
+	<key name="compress" type="radio" label="代码压缩：">
+		<option value="on">开启压缩</option>
+		<option value="off">关闭压缩</option>
+	</key>
+	
+	<key name="model" type="radio" label="用户界面：">
+		<option value="modern">摩登现代</option>
+		<option value="classic">怀旧经典</option>
+	</key>
+	
+	<item label="系统安全"/>
+
+	<key name="ipzone" type="textarea" rows="5" cols="80" label="授权访问：" comment=" &lt;br /&gt;限定可以登录后台的 IP 列表，每行一条规则，目前支持以下三种书写格式&lt;br /&gt;* 范围IP 规则匹配：192.168.1.1-192.168.1.255&lt;br /&gt;* 全段IP 规则匹配：192.168.1.*&lt;br /&gt;* 指定IP 规则匹配：192.168.1.99"></key>	
+
+	<key name="prefix" type="text" format="number" label="会话前辍：" comment=" Cookies 前辍" size="35" data-valid-empty="yes"/>
+
+	<key name="interval" type="text" format="number" label="状态检查：" comment=" 用户会话检查时间间隔，单位：秒" size="35" data-valid-empty="yes"/>
+	
+	<key name="debug" type="radio" label="调试模式：">
+		<option value="on">开启，输出详细的错误信息</option>
+		<option value="off">关闭</option>
+	</key>
+	
+	<key name="sso" type="radio" label="单点登录：">
+		<option value="on">开启，单一用户只能在单一地点登录系统</option>
+		<option value="off">关闭</option>
+	</key>
+	
+	<key name="upload" type="radio" label="附件上传：">
+		<option value="on">允许上传文件</option>
+		<option value="off">禁止</option>
+	</key>
+
+	<key name="remember" type="radio" label="记住用户：">
+		<option value="on">允许，将用户名写入 Cookies</option>
+		<option value="off">禁止</option>
+	</key>
+	
+	<item label="验证图片"/>
+
+	<key name="captcha[show]" type="radio" label="是否开启：">
+		<option value="on">开启</option>
+		<option value="off">关闭</option>
+	</key>
+
+	<key name="captcha[lang]" type="radio" label="字符类型：">
+		<option value="en">英文或数字</option>
+		<option value="cn">中文</option>
+	</key>
+
+	<item label="数据控制"/>
+
+	<key name="pagesize" type="text" data-valid-name="每页数据数量" data-valid-number="yes" label="每页数据：" tip="每页记录条数，用于数据列表页分页处理" size="35" data-valid-empty="yes"/>
+
+	<key name="logsize" type="text" data-valid-name="用户日志数量" data-valid-number="yes" label="用户日志：" tip="用户日志条数，达到这一数量后进行清理操作" size="35" data-valid-empty="yes"/>
+
+	<key name="memory" type="text" label="下载上限：" comment=" Mb 默认为空，即系统默认" size="35" data-valid-name="附件下载大小" fix_number="no" />
+	
+	<item label="模块扩展"/>
+	
+	<key name="category" type="textarea" rows="3" cols="80" label="内容分类：" comment=" &lt;br /&gt;用于表单、投票、专题等内容的分类，两个分类之间用空隔隔开"></key>
+
+	<key name="expire" type="select" label="分享期限：" comment=" 用户及统计数据分享时间限制">
+		<option value="86400">一天</option>
+		<option value="259200">三天</option>
+		<option value="604800">一周</option>
+		<option value="1209600">两周</option>
+		<option value="1814400">三周</option>
+		<option value="2592000">一个月</option>
+		<option value="5184000">两个月</option>
+	</key>
+	
+	<key name="password" type="text" label="分享密码：" comment=" 默认为空，即不需要输入" size="35" />
+	
+	<key name="overtime" type="select" label="有效期限：" comment=" 表单、广告等模块内容默认结束时间周期">
+		<option value="604800">一周</option>
+		<option value="1209600">两周</option>
+		<option value="1814400">三周</option>
+		<option value="2592000">一个月</option>
+		<option value="5184000">两个月</option>
+	</key>
+	
+	<item label="伪静态"/>
+	
+	<key name="rewrite[platform]" type="radio" label="当前平台：" size="50">
+		<option value="nginx"> Nginx（一次编码）</option>
+		<option value="apache">Apache（二次编码）</option>
+	</key>
+	
+	<key name="rewrite[charset]" type="radio" label="编码方式：" size="50">
+		<option value="ansi"> ANSI </option>
+		<option value="utf8"> UTF-8（部分 IIS 环境需要）</option>
+	</key>
+
+	<item label="地图设置"/>
+	
+	<key name="location[provide]" type="radio" label="地图提供：" size="50">
+		<option value="baidu">百度</option>
+		<option value="google">谷歌</option>
+	</key>
+	
+	<key name="location[key]" type="textarea" rows="2" cols="80" label="地图密钥：" comment=" &lt;br /&gt;* 百度地图密钥 &lt;a href='http://lbsyun.baidu.com/apiconsole/key?application=key' target='_blank'&gt;点这获取&lt;/a&gt; &lt;br /&gt;* 谷歌地图密钥 &lt;a href='https://code.google.com/apis/console/' target='_blank'&gt;点这获取&lt;/a&gt; " size="90" />
+	
+	<key name="location[zoom]" type="select" label="缩放级别：" comment=" 越大显示地址越具体" size="100">
+		<option value="15">15</option>
+		<option value="14">14</option>
+		<option value="13">13</option>
+		<option value="12">12</option>
+		<option value="10">10</option>
+		<option value="8">8</option>
+		<option value="6">6</option>
+		<option value="4">4</option>
+	</key>
+	
+	<key name="location[city]" type="text" label="城市名称：" comment=" 默认地区，用于显示在地区框中" rows="5" cols="80" />
+	
+	<key name="location[lng]" type="text" group="地图坐标：" placeholder="经度（Longitude ）" comment="" size="20" />
+		
+	<key name="location[lat]" type="text" group="地图坐标：" placeholder="纬度（Latitude ）" comment="" size="20" />
+	
+	<key type="notice" comment=" 用于显示默认地图，参考链接 &lt;a href='http://www.veryide.com/guide.php?appid=system&amp;id=44' target='_blank'&gt;点这获取&lt;/a&gt;" />
+
+</config>

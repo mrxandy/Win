@@ -1,0 +1,149 @@
+
+
+<!--{$_LOGIN}-->
+
+<!--{if $error eq "mcrypt"}-->
+	<div id="post" class="error">
+		<p>
+			提交失败，请联系管理员安装 mcrypt 模块！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>
+	</div>
+<!--{/if}-->
+
+<!--{if $error eq "login"}-->
+	<div id="post" class="error">
+		<p>
+			提交失败，请先登录！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>
+	</div>
+<!--{/if}-->
+
+<!--{if $error eq "verify"}-->
+	<div id="post" class="error">
+		<p>
+			提交失败，请不要重复提交！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>
+	</div>
+<!--{/if}-->
+
+<!--{if $error eq "captcha"}-->
+	<div id="post" class="error">
+		<p>
+			提交失败，请正确输入验证码！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>
+	</div>
+<!--{/if}-->
+
+<!--{if $error eq "toplimit"}-->
+	<div id="post" class="error">
+		<p>
+			提交失败，已超过人数上限！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>
+	</div>
+<!--{/if}-->
+
+<!--{if $error eq "state"}-->
+	<div id="post" class="error">
+		<p>
+			提交失败，表单还未启用！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>		
+	</div>	
+<!--{/if}-->
+
+<!--{if $error eq "expire"}-->
+	<div id="post" class="error">
+		<p>
+			提交失败，表单已经过期！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>		
+	</div>
+<!--{/if}-->
+
+<!--{if $error eq "cookie"}-->
+	<div id="post" class="error">
+		<p>
+			提交失败，您刚刚已经投过票了，稍后再来！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>		
+	</div>
+<!--{/if}-->
+
+<!--{if $error eq "ip"}-->
+	<div id="post" class="error">
+		<p>
+			<!--{if $form.form.config.VERIFY_MODE=='DAY'}-->
+            	提交失败，您所在IP今天的投票次数已达上限（<!--{$form.form.config.FORM_SPEED}-->）！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+            <!--{else}-->
+            	提交失败，您所在IP的投票次数已达上限（<!--{$form.form.config.FORM_SPEED}-->）！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+            <!--{/if}-->
+		</p>		
+	</div>	
+<!--{/if}-->
+
+<!--{if $error eq "number"}-->
+	<div id="post" class="error">
+		<p>
+        	<!--{if $form.form.config.FORM_DATEDIFF=='DAY'}-->
+            	提交失败，每位用户每天只能投票 <!--{$form.form.config.FORM_NUMBER}--> 次！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+            <!--{else}-->
+            	提交失败，每位用户全部只能参加 <!--{$form.form.config.FORM_NUMBER}--> 次！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+            <!--{/if}-->			
+		</p>		
+	</div>
+<!--{/if}-->
+
+<!--{if $error eq "score"}-->
+	<div id="post" class="error">
+		<p>
+			提交失败，当前用户少于 <!--{$form.form.config.FORM_SCORE}--> <img src="<!--{$_G.system.base}-->static/image/icon/coins.png" /> ！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>		
+	</div>	
+<!--{/if}-->
+
+<!--{if $error eq "regdate"}-->
+	<div id="post" class="error">
+		<p>
+			提交失败，当前用户注册时间晚于 <!--{$form.form.config.FORM_REGDATE|date_format:"%Y/%m/%d"}--> <a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>		
+	</div>	
+<!--{/if}-->
+
+<!--{if $error eq "null"}-->
+	<div id="post" class="error">
+		<p>
+			提交失败，没有收到数据！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>		
+	</div>	
+<!--{/if}-->
+
+<!--{if $error eq "zone"}-->
+	<div id="post" class="error">
+		<p>
+			提交失败，您所在地区（<!--{$zone}-->）禁止参加活动！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+		</p>		
+	</div>	
+<!--{/if}-->
+
+<!--{if $error eq ""}-->
+	<div id="post">
+		<p>
+			谢谢您的参与！
+            <!--{if $_G.member.id && $form.form.config.FORM_MONEY}-->
+            	同时获得 <img src="<!--{$_G.system.base}-->static/image/icon/coins.png" /> <!--{$form.form.config.FORM_MONEY}--> 个，目前您共有 <img src="<!--{$_G.system.base}-->static/image/icon/coins.png" /> <!--{$money}--> 个。
+            <!--{/if}-->
+            <!--{if $form.form.config.HIDE_COUNT !== "Y"}-->
+            	<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&action=result&id=<!--{$form.form.id}-->">查看结果</a>
+            <!--{else}-->
+            	<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&fied=<!--{$fied}-->&sort=<!--{$sort}-->&id=<!--{$form.form.id}-->">返回操作</a>
+            <!--{/if}-->
+		</p>		
+	</div>
+    
+    
+    <!--{if $form.form.quote && $form.form.config.PAGE_REDIRECT }-->
+        <!--{if $form.form.config.PAGE_REDIRECT == "A"}-->
+        	<script type="text/javascript">window.setTimeout(function(){window.open("<!--{$form.form.quote}-->")},2000)</script>
+        <!--{else}-->
+         	<script type="text/javascript">window.setTimeout(function(){top.location.href="<!--{$form.form.quote}-->";},2000)</script>
+        <!--{/if}-->	
+    <!--{/if}-->
+    
+<!--{/if}-->

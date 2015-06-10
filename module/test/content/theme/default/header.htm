@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<!--{$_G.product.charset}-->" />
+<title><!--{$form.form.name}--> - <!--{$_G.setting.global.site}--> - Powered By VeryIDE</title>
+<link type="text/css" rel="stylesheet" charset="utf-8" href="theme/<!--{$form.form.skin}-->/style.css?ver=4.0" title="VeryIDE" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!--外部引用 必需块-->
+<script type="text/javascript" charset="utf-8" src="<!--{$_G.system.host}-->static/js/mo.js?ver=<!--{$_G.product.version}-->"></script>
+<script type="text/javascript" charset="utf-8" src="<!--{$_G.system.host}-->static/js/mo.ui.js?ver=<!--{$_G.product.version}-->"></script>
+<script type="text/javascript" charset="utf-8" src="<!--{$_G.system.host}-->static/js/mo.ajax.js?ver=<!--{$_G.product.version}-->"></script>
+<script type="text/javascript" charset="utf-8" src="<!--{$_G.system.host}-->static/js/mo.effect.js?ver=<!--{$_G.product.version}-->"></script>
+<script type="text/javascript" charset="utf-8" src="<!--{$_G.system.host}-->static/js/mo.drag.js?ver=<!--{$_G.product.version}-->"></script>
+<script type="text/javascript" charset="utf-8" src="<!--{$_G.system.host}-->static/js/mo.form.js?ver=<!--{$_G.product.version}-->"></script>
+<!--外部引用 必需块-->
+
+<!--{if $_CACHE.system.module.passport}-->
+<!--{include file="`$_G.system.root`module/passport/include.script.htm"}-->
+<!--{/if}-->
+
+</head>
+<body style="<!--{$form.form.background}-->">
+
+	<!--{$form.form.bgsound}-->
+
+	<!--{if $_G.parameter.mode == "layout" && $_G.manager.id && $_CACHE.system.module.passport}-->
+        <!--{include_php file="`$_G.system.root`module/passport/include.theme.php"}-->
+        <!--{include file="`$_G.system.root`module/passport/include.layout.htm"}-->
+	<!--{/if}-->
+	
+	<!--{if $_G.parameter.mode !="simple" && $_CACHE.system.module.passport}-->
+		<!--{include file="`$_G.system.root`module/passport/theme/`$_G.setting.passport.theme`/header.htm"}-->
+	<!--{/if}-->
+
+	<div id="main" data-type="wrap" style="<!--{$form.form.wrapstyle}-->" class="<!--{$form.form.config.PAGE_ALIGN}-->">
+    
+		<!--{if $_G.parameter.mode !="simple"}-->
+        
+			<div id="header">
+            
+			<!--{if $form.form.config.HIDE_TITLE !== "Y"}-->
+				<h1 data-type="title"><!--{$form.form.name}--></h1>
+			<!--{/if}-->
+			
+			<!--{if $form.form.config.HIDE_DESCRIBE !== "Y"}-->
+				<div data-type="state"><!--{$form.form.description}--></div>
+			<!--{/if}-->				
+			
+			<!--{if $form.form.config.FORM_MAX || $form.form.config.FORM_NUMBER || $form.form.config.FORM_MONEY || $form.form.config.FORM_DEDUCT }-->
+				<p>
+                <!--{if $form.form.config.FORM_MAX}-->参加人数上限：<!--{$form.form.config.FORM_MAX}-->；<!--{/if}-->
+                <!--{if $form.form.config.FORM_NUMBER}-->每人限参加<!--{$form.form.config.FORM_NUMBER}-->次；<!--{/if}-->
+                <!--{if $form.form.config.FORM_MONEY}-->参与即送<!--{$_G.setting.passport.currency}--> <img src="<!--{$_G.system.base}-->static/image/icon/coins.png" /> <!--{$form.form.config.FORM_MONEY}-->个；<!--{/if}-->
+                <!--{if $form.form.config.FORM_DEDUCT}-->答题出错将扣除<!--{$_G.setting.passport.currency}--> <img src="<!--{$_G.system.base}-->static/image/icon/coins.png" /> <!--{$form.form.config.FORM_DEDUCT}-->个；<!--{/if}-->
+                </p>
+			<!--{/if}-->
+			
+			<!--{if $form.form.config.HIDE_COUNT !== "Y"}-->
+				<p data-type="count">截止到目前，共有 <!--{if $form.form.config.HIDE_STATE !== "Y"}--><a href="?action=state&id=<!--{$form.form.id}-->"><!--{$form.form.stat}--></a><!--{else}--><!--{$form.form.stat}--><!--{/if}--> 人参与本活动。</p>				
+			<!--{/if}-->
+			
+			<!--{if $form.form.start > time() }-->
+				<p class="error">注意：表单还未正式启用，暂时不接受提交！</p>
+			<!--{elseif $form.form.expire < time() }-->
+				<p class="error">注意：表单已经过期无效，已经不接受提交！</p>
+			<!--{/if}-->
+			
+			</div>
+		
+		<!--{/if}-->
+        
+		<div id="content">
+
+			<a name="top"></a>

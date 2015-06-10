@@ -1,0 +1,158 @@
+
+<!--{$_LOGIN}-->
+
+<!--{if $error eq "login"}-->
+	<div id="post">
+		<p class="fail">
+			提交失败，请先登录！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->" onclick="javascript:history.back(); return false;">返回操作</a>
+		</p>
+	</div>
+<!--{/if}-->
+
+<!--{if $error eq "verify"}-->
+	<div id="post">
+		<p class="fail">
+			提交失败，请不要重复提交！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->" onclick="javascript:history.back(); return false;">返回操作</a>
+		</p>
+	</div>
+<!--{elseif $error eq "toplimit"}-->
+	<div id="post">
+		<p class="fail">
+			提交失败，已超过人数上限！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->" onclick="javascript:history.back(); return false;">返回操作</a>
+		</p>
+	</div>
+<!--{elseif $error eq "state"}-->
+	<div id="post">
+		<p class="fail">
+			提交失败，表单还未启用！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->" onclick="javascript:history.back(); return false;">返回操作</a>
+		</p>		
+	</div>	
+<!--{elseif $error eq "expire"}-->
+	<div id="post">
+		<p class="fail">
+			提交失败，表单已经过期！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->" onclick="javascript:history.back(); return false;">返回操作</a>
+		</p>		
+	</div>
+<!--{elseif $error eq "cookie"}-->
+	<div id="post">
+		<p class="fail">
+			提交失败，当前计算机已经提交过了？<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->" onclick="javascript:history.back(); return false;">返回操作</a>
+		</p>		
+	</div>
+<!--{elseif $error eq "ip"}-->
+	<div id="post">
+		<p class="fail">
+			提交失败，当前计算机已经提交过了！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->" onclick="javascript:history.back(); return false;">返回操作</a>
+		</p>		
+	</div>	
+<!--{elseif $error eq "number"}-->
+	<div id="post">
+		<p class="fail">
+			提交失败，每位用户只能参加 <!--{$form.form.config.FORM_NUMBER}--> 次！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->" onclick="javascript:history.back(); return false;">返回操作</a>
+		</p>		
+	</div>
+<!--{elseif $error eq "null"}-->
+	<div id="post">
+		<p class="fail">
+			提交失败，没有收到数据！<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->" onclick="javascript:history.back(); return false;">返回操作</a>
+		</p>
+	</div>	
+<!--{elseif $error eq ""}-->
+	<div id="post">
+		<p class="done">
+			恭喜你啦，全部答对！
+            
+            <!--{if $score != -1}-->
+            	本次得分：<!--{$score}-->
+            <!--{/if}-->
+            
+            <!--{if $_G.member.id && $form.form.config.FORM_MONEY}-->
+            	同时获得 <img src="<!--{$_G.system.base}-->static/image/icon/coins.png" /> 
+            	<!--{if $form.form.config.FORM_SETTLE=="GROUP"}-->
+	            	<!--{$right|@count * $form.form.config.FORM_MONEY}-->
+            	<!--{else}-->
+	            	<!--{$form.form.config.FORM_MONEY}-->
+            	<!--{/if}--> 
+            	个，目前您共有 <img src="<!--{$_G.system.base}-->static/image/icon/coins.png" /> <!--{$money}--> 个。
+            <!--{/if}-->
+            
+            <!--{if $form.form.config.HIDE_COUNT !== "Y"}-->
+            	<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&action=result&id=<!--{$form.form.id}-->">查看结果</a>
+            <!--{else}-->
+            	<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->" onclick="javascript:history.back(); return false;">返回操作</a>
+            <!--{/if}-->
+		</p>
+        <!--{if $form.form.config.FORM_SUCCEED}-->
+			<!--{$form.form.config.FORM_SUCCEED|stripslashes}-->
+        <!--{/if}-->
+	</div>
+    
+    <!--{if $form.form.quote && $form.form.config.PAGE_REDIRECT}-->
+        <!--{if $form.form.config.PAGE_REDIRECT == "A"}-->
+        	<script type="text/javascript">window.setTimeout(function(){window.open("<!--{$form.form.quote}-->")},2000)</script>
+        <!--{else}-->
+         	<script type="text/javascript">window.setTimeout(function(){top.location.href="<!--{$form.form.quote}-->";},2000)</script>
+        <!--{/if}-->	
+    <!--{/if}-->
+    
+<!--{elseif $error}-->
+
+    <div id="post">
+        <p class="fail">
+            有 <!--{$fault|@count}--> 道题出错了<!--{if $form.form.config.FORM_DEBUG_TOPIC == "Y"}-->（具体见下方）<!--{/if}-->，
+            
+            
+            <!--{if $score != -1}-->
+            	本次得分：<!--{$score}-->
+            <!--{/if}-->
+            
+            <!--{if $_G.member.id && $form.form.config.FORM_DEDUCT}-->
+            
+            	已经扣除 <img src="<!--{$_G.system.base}-->static/image/icon/coins.png" /> 
+            	<!--{if $form.form.config.FORM_SETTLE=="FORM"}-->
+	            	<!--{$form.form.config.FORM_DEDUCT}-->
+            	<!--{else}-->
+	            	<!--{$fault|@count * $form.form.config.FORM_DEDUCT}-->
+            	<!--{/if}--> 个，
+            	
+                <!--{if $right}-->
+                	同时获得 <img src="<!--{$_G.system.base}-->static/image/icon/coins.png" /> 
+	                <!--{if $form.form.config.FORM_SETTLE=="GROUP"}-->
+		            	<!--{$right|@count * $form.form.config.FORM_MONEY}-->
+	                <!--{else}-->
+		            	<!--{$form.form.config.FORM_MONEY}-->
+	                <!--{/if}--> 个，
+                <!--{/if}-->
+                
+                目前您共有 <img src="<!--{$_G.system.base}-->static/image/icon/coins.png" /> <!--{$money}--> 个。
+            <!--{/if}-->
+            
+            <!--{if $form.form.config.HIDE_COUNT !== "Y"}-->
+            	<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&action=result&id=<!--{$form.form.id}-->">查看结果</a>
+            <!--{else}-->
+            	<a href="?mode=<!--{$_G.parameter.mode|dhtmlspecialchars}-->&id=<!--{$form.form.id}-->" onclick="javascript:history.back(); return false;">返回操作</a>
+            <!--{/if}-->
+        </p>
+    </div>
+    
+    <!--{if $form.form.config.FORM_DEBUG_TOPIC == "Y"}-->
+	    <!--{foreach from=$fault key=gid item=val}-->
+	    <dl id="group-<!--{$gid}-->" class="<!--{$group.type}-->">
+	    	<dt> <!--{if $form.group[$gid].config.GROUP_SCORE}--><span>本题 <!--{$form.group[$gid].config.GROUP_SCORE}--> 分</span><!--{/if}--> <strong><!--{$form.group[$gid].name}--></strong></dt>
+	    	<dd>
+	    		<p>
+	    		<!--{foreach from=$form.option[$gid] key=oid item=option}-->
+	    			<label class="label <!--{if $oid|in_array:$val}-->error<!--{/if}-->">
+				        <!--{$option.name}-->
+			        </label>
+		        <!--{/foreach}-->
+	    		</p>
+	    		<!--{if $form.form.config.FORM_DEBUG_ANSWER == "Y"}-->
+	    		<p>正确答案是：<!--{foreach from=$form.group[$gid].selected item=oid}--><!--{$form.option[$gid][$oid].name}--><!--{/foreach}--></p>
+	    		<!--{/if}-->
+	    	</dd>
+	    </dl>
+	    <!--{/foreach}-->
+    <!--{/if}-->
+
+<!--{/if}-->

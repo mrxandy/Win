@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+	<item label="基本配置"/>
+	
+	<key name="MAIL_USER" type="text" label="用户名：" size="35" data-valid-empty="yes" align="right"/>
+	<key name="MAIL_PASS" type="password" label="密码：" size="35" data-valid-empty="yes" align="right"/>
+
+	<item label="POP3" comment="用于收取邮件" />
+
+	<key name="MAIL_POP3_HOST" type="text" label="服务器：" size="35" data-valid-empty="yes" width="80" />
+	<key name="MAIL_POP3_PORT" type="text" format="number" label="端口号：" size="35" data-valid-empty="yes" />
+	
+	<key name="MAIL_POP3_SAFE" type="radio" label="安全通道：">
+		<option value="true">使用SSL安全通道</option>
+		<option value="false">否</option>
+	</key>
+	
+	<item label="SMTP" comment="用于发送邮件" />
+	
+	<key name="MAIL_SMTP_SEND" value="mail" type="radio" label="发送模式：">
+		<option value="mail">MAIL 函数发送</option>
+		<option value="smtp">SMTP 模块发送</option>
+	</key>
+
+	<key name="MAIL_SMTP_HOST" type="text" label="服务器：" size="35" data-valid-empty="yes" width="80" />
+	<key name="MAIL_SMTP_PORT" type="text" format="number" label="端口号：" size="35" data-valid-empty="yes" />
+	
+	<key name="MAIL_SMTP_AUTH" type="radio" label="身份验证：">
+		<option value="true">是</option>
+		<option value="false">否</option>
+	</key>
+	
+	<key name="MAIL_SMTP_SAFE" type="radio" label="安全通道：">
+		<option value="true">使用SSL安全通道</option>
+		<option value="false">否</option>
+	</key>
+	<key name="MAIL_SMTP_FROM" type="text" format="email" label="发信地址：" size="35" data-valid-empty="yes" align="right"/>
+	<key name="MAIL_SMTP_NAME" type="text" label="发信称呼：" size="35" data-valid-empty="yes" align="right"/>
+	
+	<item label="邮件模板" comment="用于发送邮件" />
+	
+	<key name="MAIL_TEMPLATE_HEAD" type="textarea" rows="5" cols="80" label="头部内容：" tip="HTML 代码"></key>
+	
+	<key name="MAIL_TEMPLATE_FOOT" type="textarea" rows="5" cols="80" label="尾部内容：" tip="HTML 代码"></key>
+	
+</config>
